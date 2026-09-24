@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
+<!-- e-ΚΟΚ — Created by Polykarpos Antonopoulos -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -8,6 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="ΚΟΚ">
 <link rel="apple-touch-icon" sizes="180x180" href="./icon-192.png">
 <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+<meta name="author" content="Polykarpos Antonopoulos">
 <link rel="manifest" href="./manifest.json">
 <meta name="theme-color" content="#000000">
 <title>MyKOK — Ν. 5209/2025</title>
@@ -203,6 +205,14 @@ mark{background:rgba(0,113,227,.28);color:inherit;border-radius:2px;padding:0 1p
   background:rgba(255,149,0,.14);border-bottom:.5px solid rgba(255,149,0,.35);
   color:#ff9500;font-size:.82rem;font-weight:500;text-align:center}
 #lic-warn.on{display:block}
+
+/* ═══ CREDIT FOOTER ═══ */
+#credit{padding:26px 20px calc(var(--sb) + 30px);text-align:center;
+  border-top:.5px solid var(--sep);margin-top:14px}
+#credit .cr-app{font-size:.9rem;font-weight:600;color:var(--text2);letter-spacing:-.01em}
+#credit .cr-by{margin-top:7px;font-size:.8rem;color:var(--g5)}
+#credit .cr-by b{color:var(--g6);font-weight:600}
+#credit .cr-meta{margin-top:9px;font-size:.72rem;color:var(--g5);line-height:1.6}
 </style>
 </head>
 <body>
@@ -214,7 +224,7 @@ mark{background:rgba(0,113,227,.28);color:inherit;border-radius:2px;padding:0 1p
   <input id="lic-inp" type="tel" inputmode="numeric" maxlength="6" placeholder="––––––" autocomplete="off">
   <button onclick="licTry()">Ενεργοποίηση</button>
   <div id="lic-msg"></div>
-  <div id="lic-foot">e-ΚΟΚ · Για κωδικό επικοινωνήστε<br>με τον διαχειριστή της εφαρμογής</div>
+  <div id="lic-foot">Created by <b style="color:#8e8e93">Polykarpos Antonopoulos</b><br>Για κωδικό επικοινωνήστε με τον δημιουργό</div>
 </div>
 
 <div id="lic-warn"></div>
@@ -260,6 +270,12 @@ mark{background:rgba(0,113,227,.28);color:inherit;border-radius:2px;padding:0 1p
 </div>
 
 <div class="main" id="main"></div>
+
+<div id="credit">
+  <div class="cr-app">e-ΚΟΚ — Παραβάσεις &amp; Πρόστιμα</div>
+  <div class="cr-by">Created by <b>Polykarpos Antonopoulos</b></div>
+  <div class="cr-meta">Ν. 5209/2025 · Ν. 5322/2026 · Ν. 3446/2006<br><span id="cr-cnt">—</span> καταχωρημένες παραβάσεις</div>
+</div>
 
 <div class="ov" id="ov" onclick="ovClick(event)">
   <div class="sht" id="sht">
@@ -943,6 +959,7 @@ function init(){
       render();
     });
     document.getElementById('vcnt').textContent=V.length;
+    { const c=document.getElementById('cr-cnt'); if(c) c.textContent=V.length; }
     render();
   } catch(e) {
     const el = document.getElementById('main');
