@@ -1291,10 +1291,12 @@ function cardHTML(v){
 function renderAlpha(el){
   const items=V.filter(v=>tabMatch(v)&&match(v,Q));
   if(!items.length){el.innerHTML='<div class="empty"><div class="ei">🔍</div><div class="et">Δεν βρέθηκαν αποτελέσματα</div></div>';return;}
-  const sorted=[...items].sort((a,b)=>a.title.localeCompare(b.title,'el'));
+  // Κλειδί ταξινόμησης: αγνοεί αρχικά σύμβολα/emoji (π.χ. ℹ️) και τόνους (Ά→Α, Έ→Ε)
+  const azKey=t=>(t||'').replace(/^[^0-9A-Za-z\u0386-\u03CE]+/,'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().replace(/[ABEZHIKMNOPTYX]/g,c=>'ΑΒΕΖΗΙΚΜΝΟΡΤΥΧ'['ABEZHIKMNOPTYX'.indexOf(c)]);
+  const sorted=[...items].sort((a,b)=>azKey(a.title).localeCompare(azKey(b.title),'el'));
   let h='',curL='';
   sorted.forEach(v=>{
-    const L=(v.title[0]||'').toUpperCase();
+    const L=azKey(v.title)[0]||'#';
     if(L!==curL){curL=L;h+=`<div class="az-letter">${L}</div>`;}
     h+=cardHTML(v);
   });
