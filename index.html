@@ -290,6 +290,54 @@ mark{background:rgba(0,113,227,.28);color:inherit;border-radius:2px;padding:0 1p
 .bk-pp{font-size:11px;color:var(--g6);margin-top:2px}
 .bk-pv{font-size:17px;font-weight:700;white-space:nowrap}
 #bk-txt{display:none;white-space:pre-wrap;font-size:11px;background:var(--card);color:var(--text2);margin:8px 16px;padding:10px;border-radius:10px;user-select:text;-webkit-user-select:text}
+/* ══ ΛΕΙΤΟΥΡΓΙΑ ΠΕΔΙΟΥ: μεγαλύτερα στοιχεία, πλοήγηση κάτω ══ */
+:root{--dockh:calc(158px + var(--sb))}
+#selmode-btn{display:none!important}
+.hdr{padding:calc(var(--st) + 8px) 16px 8px}
+.hdr h1{font-size:18px}
+.fzb{position:absolute;right:12px;top:calc(var(--st) + 8px);display:flex;gap:6px}
+.fzb button{background:var(--g3);color:var(--text);border:none;border-radius:10px;min-width:40px;height:36px;font-size:15px;font-weight:700;cursor:pointer}
+.fzb button.on{background:var(--blue);color:#fff}
+.tabs{padding:10px 16px 10px}
+.tab{padding:9px 16px;font-size:15px}
+.tabs.hide{display:none}
+.row{padding:14px 12px 14px 16px;min-height:66px}
+.ttl{font-size:16px;line-height:1.32}
+.sub{font-size:13px}
+.ico{width:40px;height:40px;font-size:20px}
+.bdg{font-size:14px;padding:4px 10px}
+.af{font-size:12px}
+.addb{flex-shrink:0;width:42px;height:42px;border-radius:50%;border:1.5px solid var(--g4);background:transparent;color:var(--text2);font-size:22px;line-height:1;cursor:pointer;touch-action:manipulation;display:flex;align-items:center;justify-content:center}
+.addb.on{background:var(--blue);border-color:var(--blue);color:#fff;font-size:18px}
+.main{padding:0 0 calc(var(--dockh) + 70px)}
+#credit{padding-bottom:calc(var(--dockh) + 20px)}
+/* κάτω μπάρα */
+#dock{position:fixed;left:0;right:0;bottom:0;z-index:250;background:rgba(18,18,20,.97);border-top:.5px solid var(--sep);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+#dock .vtabs{background:transparent;padding:8px 12px 4px}
+#dock .vtab{padding:8px 10px;font-size:14px}
+#dock .srch{background:transparent;padding:4px 12px 6px}
+#dock .srch-box{padding:11px 14px;border-radius:14px}
+#dock .srch-box input{font-size:17px}
+.nav{display:flex;padding:2px 4px calc(6px + var(--sb))}
+.nb{flex:1;background:none;border:none;color:var(--g6);display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0 4px;font-size:11.5px;font-weight:600;cursor:pointer;position:relative;touch-action:manipulation;font-family:inherit}
+.nb b{font-size:23px;line-height:1;font-weight:400;filter:grayscale(1);opacity:.75}
+.nb.on{color:var(--blue)}
+.nb.on b{filter:none;opacity:1}
+.nb i{position:absolute;top:0;left:calc(50% + 6px);font-style:normal;background:var(--red);color:#fff;border-radius:10px;font-size:11px;font-weight:700;padding:1px 6px;display:none}
+.nb i.on{display:block}
+#basket{bottom:var(--dockh);padding:10px 16px;border-radius:14px 14px 0 0;z-index:240}
+#basket .bk-amt{font-size:20px}
+body.fz2 .main,body.fz2 #sc{zoom:1.12}
+body.fz3 .main,body.fz3 #sc{zoom:1.25}
+.sht{padding-bottom:calc(var(--sb) + 30px)}
+.add-det{display:block;width:calc(100% - 32px);margin:4px 16px 10px;padding:13px;border-radius:12px;border:1.5px solid var(--blue);background:transparent;color:var(--blue);font-size:15px;font-weight:700;cursor:pointer}
+.add-det.on{background:var(--blue);color:#fff}
+
+.hdr h1,.hdr p{text-align:left}
+.hdr-stats{justify-content:flex-start}
+.fzb button{min-width:38px;height:34px;font-size:14px}
+
+#basket{background:#1c1c1e;border:.5px solid var(--g4);border-bottom:none;box-shadow:0 -6px 20px rgba(0,0,0,.5)}
 </style>
 </head>
 <body>
@@ -307,6 +355,7 @@ mark{background:rgba(0,113,227,.28);color:inherit;border-radius:2px;padding:0 1p
 <div id="lic-warn"></div>
 
 <div class="hdr">
+  <div class="fzb"><button data-fz="1" onclick="setFz(1)" aria-label="Κανονικά γράμματα">Α</button><button data-fz="2" onclick="setFz(2)" aria-label="Μεγάλα γράμματα">Α+</button><button data-fz="3" onclick="setFz(3)" aria-label="Πολύ μεγάλα γράμματα">Α++</button></div>
   <h1>e-ΚΟΚ <span class="demo">demo</span></h1>
   <p>Ν. 5209/2025 · Ν. 5322/2026 · Ν. 3446/2006</p>
   <div class="hdr-stats">
@@ -317,35 +366,10 @@ mark{background:rgba(0,113,227,.28);color:inherit;border-radius:2px;padding:0 1p
 
 <button id="selmode-btn" onclick="toggleSelMode()" title="Πολλαπλή επιλογή">☑ Επιλογή</button>
 
-<div class="srch">
-  <div class="srch-box">
-    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;opacity:.5">
-      <circle cx="9" cy="9" r="7" stroke="#fff" stroke-width="1.8"/>
-      <line x1="14.5" y1="14.5" x2="19" y2="19" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
-    </svg>
-    <input type="search" id="si" placeholder="Αναζήτηση: κράνος μηχανή, Η29, ADR Β4, κόφτης…" autocomplete="off" autocorrect="off" spellcheck="false" inputmode="search">
-    <button class="clr" id="cb" onclick="clearQ()">
-      <svg width="10" height="10" viewBox="0 0 10 10"><line x1="1" y1="1" x2="9" y2="9" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><line x1="9" y1="1" x2="1" y2="9" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
-    </button>
-  </div>
-</div>
-
-<div class="vtabs" id="vtabs">
-  
-  <button class="vtab fot" onclick="setVeh('fot',this)">🚛 Φορτηγά</button>
-  <button class="vtab kok on" onclick="setVeh('kok',this)">🚗 Λοιπά ΚΟΚ</button>
-</div>
 <div class="tabs" id="tabs">
-  <button class="tab on" onclick="setTab('all',this)">Όλες</button>
-  <button class="tab wzt" onclick="setTab('wiz',this)">🧮 Βοηθός</button>
-  <button class="tab" onclick="setTab('e1',this)">Ε1 · 30€</button>
-  <button class="tab" onclick="setTab('e2',this)">Ε2 · 150€</button>
-  <button class="tab" onclick="setTab('e3',this)">Ε3 · 350€</button>
-  <button class="tab" onclick="setTab('e4',this)">Ε4 · Βαριές</button>
-  <button class="tab" onclick="setTab('cats',this)">Κατηγορίες</button>
-<button class="tab" onclick="setTab('az',this)">Α–Ω</button>
-<button class="tab" onclick="setTab('art',this)">Κατ' Άρθρο</button>
-<button class="tab inf" onclick="setTab('info',this)">📘 Οδηγός</button>
+  <button class="tab on" data-t="all" onclick="setTab('all')">Όλες</button>
+  <button class="tab" data-t="az" onclick="setTab('az')">Α–Ω</button>
+  <button class="tab" data-t="art" onclick="setTab('art')">Κατ' Άρθρο</button>
 </div>
 <div id="filt"></div>
 
@@ -357,6 +381,33 @@ mark{background:rgba(0,113,227,.28);color:inherit;border-radius:2px;padding:0 1p
   <div class="cr-meta">Ν. 5209/2025 · Ν. 5322/2026 · Ν. 3446/2006<br><span id="cr-cnt">—</span> καταχωρημένες παραβάσεις</div>
 </div>
 
+
+<div id="dock">
+  <div class="vtabs" id="vtabs">
+  
+  <button class="vtab fot" onclick="setVeh('fot',this)">🚛 Φορτηγά</button>
+  <button class="vtab kok on" onclick="setVeh('kok',this)">🚗 Λοιπά ΚΟΚ</button>
+</div>
+  <div class="srch">
+  <div class="srch-box">
+    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;opacity:.5">
+      <circle cx="9" cy="9" r="7" stroke="#fff" stroke-width="1.8"/>
+      <line x1="14.5" y1="14.5" x2="19" y2="19" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+    <input type="search" id="si" placeholder="Αναζήτηση: κράνος μηχανή, Η29, ADR Β4, κόφτης…" autocomplete="off" autocorrect="off" spellcheck="false" inputmode="search">
+    <button class="clr" id="cb" onclick="clearQ()">
+      <svg width="10" height="10" viewBox="0 0 10 10"><line x1="1" y1="1" x2="9" y2="9" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><line x1="9" y1="1" x2="1" y2="9" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</div>
+  <div class="nav">
+    <button class="nb on" data-t="all" onclick="setTab('all')"><b>📋</b>Παραβάσεις</button>
+    <button class="nb" data-t="wiz" onclick="setTab('wiz')"><b>🧮</b>Βοηθός</button>
+    <button class="nb" data-t="cats" onclick="setTab('cats')"><b>🗂️</b>Κατηγορίες</button>
+    <button class="nb" data-t="info" onclick="setTab('info')"><b>📘</b>Οδηγός</button>
+    <button class="nb" data-t="bk" onclick="openBasket()"><b>🧺</b>Καλάθι<i id="nb-cnt">0</i></button>
+  </div>
+</div>
 <div class="ov" id="ov" onclick="ovClick(event)">
   <div class="sht" id="sht">
     <div class="hdl"></div>
@@ -1194,7 +1245,7 @@ const byKya=c=>V.find(v=>(v.title||'').includes('('+c+')')&&!/^ADR|^Ταχογρ
 const byTax=c=>V.find(v=>(v.title||'').startsWith('Ταχογράφος '+c+' —'));
 function num(x){ if(x==null) return NaN; x=String(x).trim().replace(',','.'); const m=x.match(/^(\d+):(\d{1,2})$/); if(m) return +m[1]+(+m[2])/60; return x===''?NaN:+x; }
 function wzSet(k,val,re){ WZ[k]=val; if(re) render(); else wzCalc(); }
-function wzAdd(id,e){ if(e) e.stopPropagation(); if(!SEL_MODE){ SEL_MODE=true; const sb=document.getElementById('selmode-btn'); if(sb){sb.classList.add('on'); sb.textContent='✓ Ενεργή';} } SELECTED.add(id); updateBasket(); const b=document.querySelector('.wz-add[data-id="'+id+'"]'); if(b){b.textContent='✓ Στο καλάθι';b.classList.add('on');} }
+function wzAdd(id,e){ if(e) e.stopPropagation(); SELECTED.add(id); updateBasket(); const b=document.querySelector('.wz-add[data-id="'+id+'"]'); if(b){b.textContent='✓ Στο καλάθι';b.classList.add('on');} }
 function wzRow(v,note,primary){
   if(!v) return '';
   const a=afmt(v.afairesi), inB=SELECTED.has(v.id);
@@ -1540,6 +1591,18 @@ function grpKey(v){
 function gOrd(k){ if(/^🚛/.test(k)) return 1; if(/^☢/.test(k)) return 2; if(/^⏱/.test(k)) return 3; return 0; }
 function codeNum(v){ const m=(v.title||'').match(/(?:^ADR [ΑΒΓΔ]|^Ταχογράφος [ΑΒ]|\((?:ΣΤ|[ΑΒΓΔΕΖΗΘ]))(\d+)/); return m?+m[1]:1000+v.id; }
 
+// Κουμπί καλαθιού μέσα στην καρτέλα παράβασης
+const _openDetail=openDetail;
+openDetail=function(id){
+  _openDetail(id);
+  const v=V.find(x=>x.id===id); if(!v||/^ℹ️/.test(v.title)) return;
+  const sc=document.getElementById('sc'); const t=sc.querySelector('.sttl'); if(!t) return;
+  const inB=SELECTED.has(id);
+  const b=document.createElement('button'); b.className='add-det'+(inB?' on':''); b.textContent=inB?'✓ Στο καλάθι — πατήστε για αφαίρεση':'＋ Προσθήκη στο καλάθι';
+  b.onclick=e=>toggleSel(id,e);
+  const anchor=t.nextElementSibling&&t.nextElementSibling.classList.contains('sart')?t.nextElementSibling:t;
+  anchor.insertAdjacentElement('afterend',b);
+};
 function render(){
   const el=document.getElementById('main');
   renderFilt();
@@ -1573,16 +1636,16 @@ function render(){
       const a=afmt(v.afairesi);
       const amtDisp=v.amount?fmt(v.amount):v.cat;
       const isSel = SELECTED.has(v.id);
-      const rowClick = SEL_MODE ? `toggleSel(${v.id},event)` : `openDetail(${v.id})`;
+      const rowClick = `openDetail(${v.id})`;
       h+=`<div class="row${isSel?' sel':''}" data-id="${v.id}" onclick="${rowClick}">
-        ${SEL_MODE?`<div class="chk">${isSel?'✓':'○'}</div>`:''}
+        
         <div class="ico" style="background:${v.ibg||'#1a1a1a'}">${v.icon||'📋'}</div>
         <div class="body"><div class="ttl">${hl(v.title,Q)}</div><div class="sub">${hl(v.article,Q)}</div></div>
         <div class="rgt">
           <span class="bdg ${catCls(v.cat)}">${amtDisp}</span>
           ${a?'<span class="af">⏱ '+a+'</span>':''}
           ${v.epar?'<span class="ep-tag">e-Π '+v.epar+'</span>':''}
-        </div>
+        </div><button class="addb${isSel?' on':''}" onclick="toggleSel(${v.id},event)" aria-label="Καλάθι">${isSel?'✓':'＋'}</button>
       </div>`;
     });
     h+='</div>';
@@ -1727,17 +1790,26 @@ function setVeh(v,el){
   VEH=v; FW='';
   document.querySelectorAll('.vtab').forEach(x=>x.classList.remove('on'));
   el.classList.add('on');
-  TAB='all';
-  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
-  document.querySelectorAll('.tab')[0].classList.add('on');
-  render();
+  if(!['all','az','art'].includes(TAB)) setTab('all'); else render();
 }
 
-function setTab(t,el){
+function setTab(t){
   TAB=t;
-  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
-  el.classList.add('on');
-  render();
+  const list=['all','az','art'].includes(t);
+  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x.dataset.t===t));
+  document.getElementById('tabs').classList.toggle('hide',!list);
+  document.querySelectorAll('.nb').forEach(x=>x.classList.toggle('on',x.dataset.t===t||(list&&x.dataset.t==='all')));
+  render(); window.scrollTo(0,0);
+}
+function setFz(n){
+  document.body.classList.remove('fz2','fz3'); if(n>1) document.body.classList.add('fz'+n);
+  document.querySelectorAll('.fzb button').forEach(b=>b.classList.toggle('on',+b.dataset.fz===n));
+  try{localStorage.setItem('ekok-fz',String(n));}catch(e){}
+}
+function openBasket(){
+  if(SELECTED.size){ showBasketDetail(); return; }
+  document.getElementById('sc').innerHTML='<div class="empty"><div class="ei">🧺</div><div class="et">Το καλάθι είναι άδειο</div><div>Πατήστε ＋ δίπλα σε μια παράβαση για να την προσθέσετε. Το σύνολο και η συρροή υπολογίζονται αυτόματα.</div></div>';
+  openSheet();
 }
 
 function clearQ(){document.getElementById('si').value='';Q='';document.getElementById('cb').classList.remove('on');render();}
@@ -1750,10 +1822,11 @@ function init(){
     document.getElementById('si').addEventListener('input',function(){
       Q=this.value.trim();
       document.getElementById('cb').classList.toggle('on',Q.length>0);
-      if(Q&&TAB!=='all'){TAB='all';document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.tab')[0].classList.add('on');}
+      if(Q&&TAB!=='all'){TAB='all';document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x.dataset.t==='all'));document.getElementById('tabs').classList.remove('hide');document.querySelectorAll('.nb').forEach(x=>x.classList.toggle('on',x.dataset.t==='all'));}
       render();
     });
     document.getElementById('vcnt').textContent=V.length;
+    { let fz=1; try{fz=+localStorage.getItem('ekok-fz')||1;}catch(e){} setFz(fz); }
     { const c=document.getElementById('cr-cnt'); if(c) c.textContent=V.length; }
     render();
   } catch(e) {
@@ -1786,14 +1859,15 @@ function toggleSel(id, e){
   else SELECTED.add(id);
   updateBasket();
   // toggle class on row without full re-render
-  const row = document.querySelector(`.row[data-id="${id}"]`);
-  if(row) row.classList.toggle('sel', SELECTED.has(id));
+  document.querySelectorAll(`.row[data-id="${id}"]`).forEach(row=>{ row.classList.toggle('sel', SELECTED.has(id)); const b=row.querySelector('.addb'); if(b){b.classList.toggle('on',SELECTED.has(id)); b.textContent=SELECTED.has(id)?'✓':'＋';} });
+  const d=document.querySelector('.add-det'); if(d){d.classList.toggle('on',SELECTED.has(id)); d.textContent=SELECTED.has(id)?'✓ Στο καλάθι — πατήστε για αφαίρεση':'＋ Προσθήκη στο καλάθι';}
 }
 
 function clearSel(){
   SELECTED.clear();
   updateBasket();
   document.querySelectorAll('.row.sel').forEach(r=>r.classList.remove('sel'));
+  document.querySelectorAll('.addb.on').forEach(b=>{b.classList.remove('on');b.textContent='＋';});
 }
 
 /* Λογική συρροής (ανά νομικό πλαίσιο):
@@ -1838,14 +1912,15 @@ function calcBasket(){
 function updateBasket(){
   const {items, primary, total, totalDays, rows} = calcBasket();
   const basket = document.getElementById('basket');
-  if(!items.length || !SEL_MODE){
+  { const c=document.getElementById('nb-cnt'); if(c){ c.textContent=items.length; c.classList.toggle('on',items.length>0); } }
+  if(!items.length){
     basket.classList.remove('on');
     document.getElementById('main').style.paddingBottom = '';
     return;
   }
   basket.classList.add('on');
   document.getElementById('main').style.paddingBottom = '110px';
-  document.getElementById('bk-cnt').textContent = items.length + ' παράβαση' + (items.length===1?'':'εις') + ' επιλεγμέν' + (items.length===1?'η':'ες');
+  document.getElementById('bk-cnt').textContent = items.length + (items.length===1?' παράβαση':' παραβάσεις') + ' επιλεγμέν' + (items.length===1?'η':'ες');
   document.getElementById('bk-total').textContent = fmt(total);
   const concurrent = items.length > 1 ? items.slice(1) : [];
   const daysStr = totalDays > 0 ? ' · αφαίρεση ' + totalDays + ' ημ.' : '';
@@ -1931,16 +2006,16 @@ function cardHTML(v){
   const a=afmt(v.afairesi);
   const amtDisp=v.amount?fmt(v.amount):v.cat;
   const isSel=SELECTED&&SELECTED.has(v.id);
-  const rowClick=SEL_MODE?`toggleSel(${v.id},event)`:`openDetail(${v.id})`;
+  const rowClick=`openDetail(${v.id})`;
   return `<div class="row${isSel?' sel':''}" data-id="${v.id}" onclick="${rowClick}">
-    ${SEL_MODE?`<div class="chk">${isSel?'✓':'○'}</div>`:''}
+    
     <div class="ico" style="background:${v.ibg||'#1a1a1a'}">${v.icon||'📋'}</div>
     <div class="body"><div class="ttl">${hl(v.title,Q)}</div><div class="sub">${hl(v.article,Q)}</div></div>
     <div class="rgt">
       <span class="bdg ${catCls(v.cat)}">${amtDisp}</span>
       ${a?'<span class="af">⏱ '+a+'</span>':''}
       ${v.epar?'<span class="ep-tag">e-Π '+v.epar+'</span>':''}
-    </div>
+    </div><button class="addb${isSel?' on':''}" onclick="toggleSel(${v.id},event)" aria-label="Καλάθι">${isSel?'✓':'＋'}</button>
   </div>`;
 }
 function renderAlpha(el){
