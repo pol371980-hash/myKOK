@@ -369,8 +369,8 @@ body.fz3 .main,body.fz3 #sc{zoom:1.25}
 <button id="selmode-btn" onclick="toggleSelMode()" title="Πολλαπλή επιλογή">☑ Επιλογή</button>
 
 <div class="tabs" id="tabs">
-  <button class="tab on" data-t="all" onclick="setTab('all')">Όλες</button>
-  <button class="tab" data-t="az" onclick="setTab('az')">Α–Ω</button>
+  <button class="tab on" data-t="az" onclick="setTab('az')">Α–Ω</button>
+  <button class="tab" data-t="all" onclick="setTab('all')">Όλες</button>
   <button class="tab" data-t="art" onclick="setTab('art')">Κατ' Άρθρο</button>
 </div>
 <div id="filt"></div>
@@ -403,7 +403,7 @@ body.fz3 .main,body.fz3 #sc{zoom:1.25}
   </div>
 </div>
   <div class="nav">
-    <button class="nb on" data-t="all" onclick="setTab('all')"><b>📋</b>Παραβάσεις</button>
+    <button class="nb on" data-t="all" onclick="setTab('az')"><b>📋</b>Παραβάσεις</button>
     <button class="nb" data-t="wiz" onclick="setTab('wiz')"><b>🧮</b>Βοηθός</button>
     <button class="nb" data-t="cats" onclick="setTab('cats')"><b>🗂️</b>Κατηγορίες</button>
     <button class="nb" data-t="info" onclick="setTab('info')"><b>📘</b>Οδηγός</button>
@@ -1034,7 +1034,7 @@ const CATS = [
 // ═══════════════════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════════════════
-let TAB='all', Q='', VEH='kok';
+let TAB='az', Q='', VEH='kok';
 
 // ═══════════════════════════════════════════════════
 // HELPERS
@@ -1817,15 +1817,15 @@ function openCatDetail(code){
   const c=CATS.find(x=>x.code===code);if(!c)return;
   const CM={green:'#34c759',orange:'#ff9500',red:'#ff3b30',purple:'#af52de',yellow:'#ffcc00'};
   const col=CM[c.color]||'#fff';
-  const related=V.filter(v=>v.cat===code).slice(0,15);
+  const related=V.filter(v=>v.cat===code&&!/^ℹ️/.test(v.title)).sort((a,b)=>a.title.replace(/^[^0-9A-Za-zΑ-Ωα-ωΆ-ώ]+/,'').localeCompare(b.title.replace(/^[^0-9A-Za-zΑ-Ωα-ωΆ-ώ]+/,''),'el'));
   let rh='';
   if(related.length){
-    rh=`<div class="sec" style="padding-top:6px">Παραβάσεις (${V.filter(v=>v.cat===code).length})</div><div class="grp" style="margin-bottom:14px">`;
+    rh=`<div class="sec" style="padding-top:6px">Παραβάσεις (${related.length})</div><div class="grp" style="margin-bottom:14px">`;
     related.forEach(v=>rh+=`<div class="row" onclick="closeSheet();setTimeout(()=>openDetail(${v.id}),220)">
       <div class="ico" style="background:${v.ibg||'#1a1a1a'}">${v.icon||'📋'}</div>
       <div class="body"><div class="ttl">${v.title}</div><div class="sub">${v.article}</div></div>
+      <div class="rgt"><span class="bdg ${catCls(v.cat)}">${v.amount?fmt(v.amount):v.cat}</span>${v.afairesi?'<span class="af">⏱ '+afmt(v.afairesi)+'</span>':''}</div>
     </div>`);
-    if(V.filter(v=>v.cat===code).length>15)rh+=`<div class="row" style="justify-content:center;color:var(--g6);font-size:13px">…και ${V.filter(v=>v.cat===code).length-15} ακόμα</div>`;
     rh+='</div>';
   }
   document.getElementById('sc').innerHTML=`
@@ -1875,7 +1875,7 @@ function setVeh(v,el){
   VEH=v; FW='';
   document.querySelectorAll('.vtab').forEach(x=>x.classList.remove('on'));
   el.classList.add('on');
-  if(!['all','az','art'].includes(TAB)) setTab('all'); else render();
+  if(!['all','az','art'].includes(TAB)) setTab('az'); else render();
 }
 
 function setTab(t){
@@ -2106,6 +2106,7 @@ function cardHTML(v){
 }
 function renderAlpha(el){
   const items=V.filter(v=>tabMatch(v)&&match(v,Q));
+  document.getElementById('vcnt').textContent=items.length;
   if(!items.length){el.innerHTML='<div class="empty"><div class="ei">🔍</div><div class="et">Δεν βρέθηκαν αποτελέσματα</div></div>';return;}
   // Κλειδί ταξινόμησης: αγνοεί αρχικά σύμβολα/emoji (π.χ. ℹ️) και τόνους (Ά→Α, Έ→Ε)
   const azKey=t=>(t||'').replace(/^[^0-9A-Za-z\u0386-\u03CE]+/,'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().replace(/[ABEZHIKMNOPTYX]/g,c=>'ΑΒΕΖΗΙΚΜΝΟΡΤΥΧ'['ABEZHIKMNOPTYX'.indexOf(c)]);
@@ -2129,6 +2130,7 @@ function toggleArt(id){
 }
 function renderByArticle(el){
   const items=V.filter(v=>tabMatch(v)&&match(v,Q));
+  document.getElementById('vcnt').textContent=items.length;
   if(!items.length){el.innerHTML='<div class="empty"><div class="ei">🔍</div><div class="et">Δεν βρέθηκαν αποτελέσματα</div></div>';return;}
   const groups={};
   items.forEach(v=>{const k=v.article||'—';(groups[k]=groups[k]||[]).push(v);});
