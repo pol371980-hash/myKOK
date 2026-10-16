@@ -4,7 +4,7 @@
 // υπάρχει ίντερνετ), cache-first για εικονίδια/manifest.
 // Αλλάζεις το CACHE όταν θέλεις να καθαρίσουν τα παλιά caches.
 // ═══════════════════════════════════════════════════
-const CACHE = 'ekok-v16';
+const CACHE = 'ekok-v17';
 const PRECACHE = [
   './',
   './index.html',
