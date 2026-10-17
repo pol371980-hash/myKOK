@@ -340,6 +340,31 @@ body.fz3 .main,body.fz3 #sc{zoom:1.25}
 #basket{background:#1c1c1e;border:.5px solid var(--g4);border-bottom:none;box-shadow:0 -6px 20px rgba(0,0,0,.5)}
 
 .sesob{font-size:11px;font-weight:700;color:#ffcc00;background:rgba(255,204,0,.13);padding:2px 7px;border-radius:9px;white-space:nowrap}
+
+/* ══ v2: συμπαγής κεφαλίδα, γραμμές 2 επιπέδων ══ */
+:root{--dockh:calc(116px + var(--sb))}
+.hdr{display:flex;align-items:center;gap:8px;padding:calc(var(--st) + 8px) 12px 8px}
+.hdr h1{font-size:18px;margin:0;white-space:nowrap;text-align:left}
+.hdr .vtabs{flex:1;display:flex;gap:6px;padding:0;background:transparent;min-width:0}
+.hdr .vtab{padding:7px 8px;font-size:13px;border-radius:10px;white-space:nowrap}
+.fzc{flex-shrink:0;background:var(--g3);color:var(--text);border:none;border-radius:10px;height:34px;min-width:44px;padding:0 8px;font-size:14px;font-weight:700;cursor:pointer}
+.fzb,.hdr p,.hdr-stats{display:none!important}
+#filt{display:none}
+#filt.open{display:block}
+.tab.ft.open{background:var(--g4);color:#fff}
+.tab.ft.act{color:#ff9500;border:1px solid #ff9500}
+.row.r2{display:block;padding:12px 16px;min-height:0}
+.r2 .ttl{font-size:16.5px;line-height:1.32;font-weight:500}
+.r2 .meta{display:flex;align-items:center;gap:7px;margin-top:8px}
+.r2 .meta .sub{flex:1;min-width:0;margin:0;font-size:12.5px}
+.r2 .meta .bdg{font-size:14px}
+.r2 .addb{width:38px;height:38px;font-size:20px;margin-left:2px}
+.tabs{padding:8px 12px 8px}
+.tab{padding:7px 13px;font-size:14px}
+#dock .srch{padding:8px 12px 4px}
+#dock .srch-box{padding:10px 14px}
+.nb{padding:5px 0 3px;font-size:11px}
+.nb b{font-size:21px}
 </style>
 </head>
 <body>
@@ -357,13 +382,14 @@ body.fz3 .main,body.fz3 #sc{zoom:1.25}
 <div id="lic-warn"></div>
 
 <div class="hdr">
-  <div class="fzb"><button data-fz="1" onclick="setFz(1)" aria-label="Κανονικά γράμματα">Α</button><button data-fz="2" onclick="setFz(2)" aria-label="Μεγάλα γράμματα">Α+</button><button data-fz="3" onclick="setFz(3)" aria-label="Πολύ μεγάλα γράμματα">Α++</button></div>
-  <h1>e-ΚΟΚ <span class="demo">demo</span></h1>
-  <p>Ν. 5209/2025 · Ν. 5322/2026 · Ν. 3446/2006</p>
-  <div class="hdr-stats">
-    <div class="stat"><span id="vcnt">—</span> παραβάσεις</div>
-    <div class="stat">Ε1: <span>30€</span> · Ε2: <span>150€</span> · Ε3: <span>350€</span></div>
-  </div>
+  <h1>e-ΚΟΚ</h1>
+  <div class="vtabs" id="vtabs">
+  
+  <button class="vtab fot" onclick="setVeh('fot',this)">🚛 Φορτηγά</button>
+  <button class="vtab kok on" onclick="setVeh('kok',this)">🚗 ΚΟΚ</button>
+</div>
+  <button class="fzc" onclick="cycleFz()" aria-label="Μέγεθος γραμμάτων">Αα</button>
+  <span id="vcnt" style="display:none">—</span>
 </div>
 
 <button id="selmode-btn" onclick="toggleSelMode()" title="Πολλαπλή επιλογή">☑ Επιλογή</button>
@@ -372,6 +398,7 @@ body.fz3 .main,body.fz3 #sc{zoom:1.25}
   <button class="tab on" data-t="az" onclick="setTab('az')">Α–Ω</button>
   <button class="tab" data-t="all" onclick="setTab('all')">Όλες</button>
   <button class="tab" data-t="art" onclick="setTab('art')">Κατ' Άρθρο</button>
+  <button class="tab ft" onclick="toggleFilt()">⚙︎ Φίλτρα</button>
 </div>
 <div id="filt"></div>
 
@@ -385,11 +412,7 @@ body.fz3 .main,body.fz3 #sc{zoom:1.25}
 
 
 <div id="dock">
-  <div class="vtabs" id="vtabs">
   
-  <button class="vtab fot" onclick="setVeh('fot',this)">🚛 Φορτηγά</button>
-  <button class="vtab kok on" onclick="setVeh('kok',this)">🚗 Λοιπά ΚΟΚ</button>
-</div>
   <div class="srch">
   <div class="srch-box">
     <svg width="16" height="16" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;opacity:.5">
@@ -1476,6 +1499,7 @@ function tabMatch(v){
   if(MS&&!msOf(v).has(MS)) return false;
   return true;
 }
+function toggleFilt(){ document.getElementById('filt').classList.toggle('open'); const b=document.querySelector('.tab.ft'); if(b) b.classList.toggle('open'); }
 function setFW(x){FW=x;render();}
 function setMS(x){MS=x;render();}
 function renderFilt(){
@@ -1490,6 +1514,7 @@ function renderFilt(){
   const pool2=base.filter(v=>!(FW&&VEH==='fot')||fwOf(v)===FW);
   h+=`<div class="fbar">${MS_L.map(([k,l])=>{const n=k?pool2.filter(v=>msOf(v).has(k)).length:pool2.length;if(k&&!n&&MS!==k)return '';return `<button class="fchip ms${MS===k?' on':''}" onclick="setMS('${k}')">${l} <i>${n}</i></button>`;}).join('')}</div>`;
   el.innerHTML=h;
+  const fb=document.querySelector('.tab.ft'); if(fb){ const act=!!(FW||MS); fb.classList.toggle('act',act); fb.textContent=act?'⚙︎ Φίλτρα ●':'⚙︎ Φίλτρα'; }
 }
 function renderInfo(el){
   const items=V.filter(v=>isInfo(v));
@@ -1719,22 +1744,7 @@ function render(){
     const isG=/^(☢|⏱|🚛)/.test(art);
     const sorted=grps[art].sort((a,b)=>isG?codeNum(a)-codeNum(b):a.title.localeCompare(b.title,'el'));
     h+=`<div class="sec">${hl(art,Q)} <span style="color:var(--g5);font-weight:400">(${sorted.length})</span></div><div class="grp">`;
-    sorted.forEach(v=>{
-      const a=afmt(v.afairesi);
-      const amtDisp=v.amount?fmt(v.amount):v.cat;
-      const isSel = SELECTED.has(v.id);
-      const rowClick = `openDetail(${v.id})`;
-      h+=`<div class="row${isSel?' sel':''}" data-id="${v.id}" onclick="${rowClick}">
-        
-        <div class="ico" style="background:${v.ibg||'#1a1a1a'}">${v.icon||'📋'}</div>
-        <div class="body"><div class="ttl">${hl(v.title,Q)}</div><div class="sub">${hl(v.article,Q)}</div></div>
-        <div class="rgt">
-          <span class="bdg ${catCls(v.cat)}">${amtDisp}</span>
-          ${a?'<span class="af">⏱ '+a+'</span>':''}${v.seso?'<span class="sesob">● '+v.seso.bp+' ΒΠ</span>':''}
-          ${v.epar?'<span class="ep-tag">e-Π '+v.epar+'</span>':''}
-        </div><button class="addb${isSel?' on':''}" onclick="toggleSel(${v.id},event)" aria-label="Προσθήκη στο σύνολο προστίμου">${isSel?'✓':'＋'}</button>
-      </div>`;
-    });
+    sorted.forEach(v=>{ h+=cardHTML(v); });
     h+='</div>';
   });
   el.innerHTML=h+crossHintHTML();
@@ -1888,9 +1898,10 @@ function setTab(t){
   document.querySelectorAll('.nb').forEach(x=>x.classList.toggle('on',x.dataset.t===t||(list&&x.dataset.t==='all')));
   render(); window.scrollTo(0,0);
 }
+function cycleFz(){ const cur=document.body.classList.contains('fz3')?3:document.body.classList.contains('fz2')?2:1; setFz(cur%3+1); }
 function setFz(n){
   document.body.classList.remove('fz2','fz3'); if(n>1) document.body.classList.add('fz'+n);
-  document.querySelectorAll('.fzb button').forEach(b=>b.classList.toggle('on',+b.dataset.fz===n));
+  const fb=document.querySelector('.fzc'); if(fb) fb.textContent=['Αα','Αα+','Αα++'][n-1];
   try{localStorage.setItem('ekok-fz',String(n));}catch(e){}
 }
 function openBasket(){
@@ -2094,16 +2105,9 @@ function cardHTML(v){
   const a=afmt(v.afairesi);
   const amtDisp=v.amount?fmt(v.amount):v.cat;
   const isSel=SELECTED&&SELECTED.has(v.id);
-  const rowClick=`openDetail(${v.id})`;
-  return `<div class="row${isSel?' sel':''}" data-id="${v.id}" onclick="${rowClick}">
-    
-    <div class="ico" style="background:${v.ibg||'#1a1a1a'}">${v.icon||'📋'}</div>
-    <div class="body"><div class="ttl">${hl(v.title,Q)}</div><div class="sub">${hl(v.article,Q)}</div></div>
-    <div class="rgt">
-      <span class="bdg ${catCls(v.cat)}">${amtDisp}</span>
-      ${a?'<span class="af">⏱ '+a+'</span>':''}${v.seso?'<span class="sesob">● '+v.seso.bp+' ΒΠ</span>':''}
-      ${v.epar?'<span class="ep-tag">e-Π '+v.epar+'</span>':''}
-    </div><button class="addb${isSel?' on':''}" onclick="toggleSel(${v.id},event)" aria-label="Προσθήκη στο σύνολο προστίμου">${isSel?'✓':'＋'}</button>
+  return `<div class="row r2${isSel?' sel':''}" data-id="${v.id}" onclick="openDetail(${v.id})">
+    <div class="ttl">${hl(v.title,Q)}</div>
+    <div class="meta"><span class="bdg ${catCls(v.cat)}">${amtDisp}</span>${a?'<span class="af">⏱ '+a+'</span>':''}${v.seso?'<span class="sesob">● '+v.seso.bp+' ΒΠ</span>':''}<span class="sub">${hl(v.article,Q)}</span><button class="addb${isSel?' on':''}" onclick="toggleSel(${v.id},event)" aria-label="Προσθήκη στο σύνολο προστίμου">${isSel?'✓':'＋'}</button></div>
   </div>`;
 }
 function renderAlpha(el){
