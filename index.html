@@ -524,6 +524,24 @@ body.at-home .hdr .back{display:none}
 .lic-ul li{font-size:15px;line-height:1.45;margin-bottom:5px}
 .lic-ul.note li{color:#ffcc00}
 .lic-foot{font-size:12px;color:var(--g6);margin-top:12px;line-height:1.4}
+
+/* ═══ ΑΝΟΙΧΤΟ ΘΕΜΑ ═══ */
+body.light{--bg:#dcdde1;--card:#ebecef;--card2:#d6d7dc;--g3:#d3d4d9;--g4:#c2c3c9;--g5:#8e8e93;--g6:#6e6e73;--sep:rgba(0,0,0,.12);--text:#2a2a2e;--text2:#55565c;color-scheme:light}
+body.light .hdr{background:rgba(220,221,225,.92)}
+body.light #dock{background:rgba(226,227,231,.97)}
+body.light #basket{background:#ebecef;box-shadow:0 -6px 20px rgba(0,0,0,.12)}
+body.light .ov{background:rgba(0,0,0,.35)}
+body.light .vtab.on.fot{background:#fff1e0;color:#c76a00;border-color:#ff9500}
+body.light .vtab.on.kok{background:#e3efff;color:var(--blue)}
+body.light .fchip.on{background:rgba(0,113,227,.12);color:var(--blue)}
+body.light .tab.ft.open{color:var(--text)}
+body.light .sg-t b,body.light .lic-code,body.light .sg-code,body.light .fx-chg,body.light .fx-go,body.light .fx-det>summary{color:#0062c4}
+body.light .sp-tags span{background:rgba(229,83,75,.10)}
+body.light .iv-tile b{color:var(--text)}
+body.light .iv-tile em{color:#a66b00}
+body.light .sesob{color:#9a6b00;background:rgba(255,204,0,.22)}
+body.light .seso-v{color:#b07a00!important}
+.thm{flex-shrink:0;background:var(--g3);color:var(--text);border:none;border-radius:10px;height:34px;min-width:40px;padding:0 8px;font-size:16px;cursor:pointer;margin-right:6px}
 </style>
 </head>
 <body>
@@ -548,7 +566,7 @@ body.at-home .hdr .back{display:none}
   <button class="vtab fot" onclick="setVeh('fot',this)">🚛 Φορτηγά</button>
   <button class="vtab kok on" onclick="setVeh('kok',this)">🚗 ΚΟΚ</button>
 </div>
-  <button class="fzc" onclick="cycleFz()" aria-label="Μέγεθος γραμμάτων">Αα</button>
+  <button class="thm" onclick="toggleTheme()" aria-label="Φωτεινό / σκούρο θέμα">☀️</button><button class="fzc" onclick="cycleFz()" aria-label="Μέγεθος γραμμάτων">Αα</button>
   <span id="vcnt" style="display:none">—</span>
 </div>
 
@@ -1984,7 +2002,7 @@ function sesoHTML(v){
   if(!v.seso) return '';
   const s=v.seso;
   return `<div class="gc full seso"><div class="gclbl">Σ.Ε.Σ.Ο. — βαθμοί ποινής</div>
-    <div class="gcval" style="color:#ffcc00">${s.bp} βαθμοί <span style="font-size:15px;color:var(--g6);font-weight:600">· κωδ. ${s.kp}</span></div>
+    <div class="gcval seso-v" style="color:#ffcc00">${s.bp} βαθμοί <span style="font-size:15px;color:var(--g6);font-weight:600">· κωδ. ${s.kp}</span></div>
     <div class="gcsub">ΚΥΑ 21504/2601/2007 — παλαιός ΚΟΚ ${s.old}${s.note?'<br>ℹ️ '+s.note:''}${s.rep?'<br>⚠️ 2η ίδια παράβαση εντός 1 έτους → αφαίρεση άδειας οδήγησης ανεξαρτήτως βαθμών (άρθρο 3 παρ. 3)':''}<br>15 βαθμοί → προειδοποίηση · 25 βαθμοί → αφαίρεση άδειας</div></div>`;
 }
 
@@ -2464,6 +2482,17 @@ function openSign(i){
    <div class="sg-nav">${i>0?`<button class="fchip" onclick="openSign(${i-1})">‹ ${SIGNS[i-1].c}</button>`:'<span></span>'}${i<SIGNS.length-1?`<button class="fchip" onclick="openSign(${i+1})">${SIGNS[i+1].c} ›</button>`:''}</div></div>`;
   openSheet(); const sc=document.getElementById('sc'); if(sc) sc.scrollTop=0;
 }
+
+
+// ═══ Θέμα: σκούρο / ανοιχτό ═══
+function setTheme(t){
+  document.body.classList.toggle('light',t==='light');
+  const b=document.querySelector('.thm'); if(b) b.textContent=t==='light'?'🌙':'☀️';
+  const m=document.querySelector('meta[name=theme-color]'); if(m) m.content=t==='light'?'#dcdde1':'#000000';
+  try{localStorage.setItem('ekok-theme',t);}catch(e){}
+}
+function toggleTheme(){ setTheme(document.body.classList.contains('light')?'dark':'light'); }
+try{ setTheme(localStorage.getItem('ekok-theme')||'dark'); }catch(e){}
 
 function render(){
   const el=document.getElementById('main');
