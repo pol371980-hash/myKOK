@@ -4,13 +4,14 @@
 // υπάρχει ίντερνετ), cache-first για εικονίδια/manifest.
 // Αλλάζεις το CACHE όταν θέλεις να καθαρίσουν τα παλιά caches.
 // ═══════════════════════════════════════════════════
-const CACHE = 'ekok-v29';
+const CACHE = 'ekok-v48';
 const PRECACHE = [
   './',
   './index.html',
   './icon-192.png',
   './icon-512.png',
-  './manifest.json'
+  './manifest.json',
+  './pinakides.js'
 ];
 
 // Εγκατάσταση: προ-αποθήκευση των βασικών αρχείων ώστε να δουλεύει offline

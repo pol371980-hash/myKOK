@@ -398,7 +398,7 @@ body.at-home .main{padding-bottom:calc(var(--dockh) + 10px)}
 body:not(.in-list) .hdr .vtabs{display:none}
 body:not(.in-list) .hdr h1{flex:1}
 
-/* αναζήτηση μόνο σε Παραβάσεις / Οδηγίες */
+/* αναζήτηση μόνο σε Παραβάσεις / Ειδική νομοθεσία */
 body.no-search #dock .srch{display:none}
 body.no-search{--dockh:calc(62px + var(--sb))}
 body.at-home #credit{display:block;margin-top:4px;padding-top:14px}
@@ -421,6 +421,109 @@ body.at-home .hdr .back{display:none}
 #dock .srch{padding:8px 12px calc(8px + var(--sb))}
 
 @media (max-width:430px){ body.in-list .hdr h1{display:none} }
+
+.art-cnt.none{color:var(--g5);font-weight:500}
+.art-none{font-size:13px;color:var(--g6);padding:8px 16px 14px}
+
+.art-sum{margin:10px 12px 8px;background:rgba(10,132,255,.10);border:1px solid rgba(10,132,255,.45);border-radius:14px;padding:11px 14px}
+.art-sum-h{font-size:12px;font-weight:700;color:#4da3ff;letter-spacing:.04em;margin-bottom:6px}
+.art-sum ul{margin:0;padding-left:16px}
+.art-sum li{font-size:14px;line-height:1.42;margin:0 0 6px;color:var(--text)}
+.law-btn{display:flex;justify-content:space-between;align-items:center;width:calc(100% - 24px);margin:0 12px 10px;background:var(--card);border:none;border-radius:12px;padding:11px 14px;color:var(--text2);font-size:14px;cursor:pointer;font-family:inherit}
+.law-btn i{font-style:normal;color:var(--g6);font-size:13px}
+
+.art-subj{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+#lic-tabs{padding:0 12px 16px}
+.lic-g{display:flex;align-items:center;gap:8px;margin:0 0 8px}
+.lic-g>span{width:96px;flex-shrink:0;font-size:12px;color:var(--g6);font-weight:600}
+.lic-g>div{display:flex;gap:6px;flex-wrap:wrap}
+.lic-t{min-width:48px;padding:8px 10px;border-radius:10px;border:1px solid var(--g4);background:transparent;color:var(--text);font-size:15px;font-weight:700;cursor:pointer;font-family:inherit}
+.lic-t.on{background:var(--blue);border-color:var(--blue);color:#fff}
+#lic-panel{margin-top:12px;background:var(--card2);border-radius:14px;padding:14px}
+.lic-head{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
+.lic-code{font-size:28px;font-weight:800;color:#4da3ff}
+.lic-age{font-size:14px;color:var(--text2);font-weight:600}
+.fx-box{display:flex;flex-direction:column;gap:14px;padding:0 16px 12px}
+.fx-det{padding:0 16px}
+.fx-det .msec{padding:0 0 8px}
+.fx-qt{font-size:14px;font-weight:600;color:var(--text2);margin-bottom:6px}
+.fx-qt b{display:inline-flex;width:20px;height:20px;border-radius:50%;background:var(--g4);color:var(--text);font-size:12px;align-items:center;justify-content:center;margin-right:4px}
+.fx-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.fx-b{font-size:14px;font-weight:600}
+.fx-oth{border-style:dashed}
+.fx-in{width:100%;box-sizing:border-box;padding:10px 12px;border-radius:10px;border:1px solid var(--g4);background:transparent;color:var(--text);font-size:16px;font-family:inherit;margin-bottom:8px}
+.fx-chg{background:none;border:none;color:#4da3ff;font-size:14px;cursor:pointer;font-family:inherit}
+.fx-none{font-size:13px;color:var(--text2)}
+.fx-res{border-radius:14px;padding:14px;border:2px solid}
+.fx-ok{border-color:#2ea043;background:rgba(46,160,67,.12)}
+.fx-cond{border-color:#d29922;background:rgba(210,153,34,.12)}
+.fx-no{border-color:#e5534b;background:rgba(229,83,75,.12)}
+.fx-v{font-size:20px;font-weight:800;margin-bottom:6px}
+.fx-t{font-size:16px;line-height:1.45;margin-bottom:4px}
+.fx-x{font-size:14px;color:var(--text2);line-height:1.45}
+.fx-bs{font-size:12px;color:var(--g6);margin-top:8px}
+.fx-lk{font-size:14px;margin-top:10px;padding-top:10px;border-top:1px solid var(--g4)}
+.fx-go{display:block;margin-top:6px;background:none;border:none;color:#4da3ff;font-size:14px;text-align:left;padding:0;cursor:pointer;font-family:inherit}
+.fx-al{font-size:12px;color:var(--text2);margin-top:8px}
+.fx-det{margin-top:6px;padding:0 16px}
+.fx-det>summary{cursor:pointer;font-size:14px;color:#4da3ff;padding:8px 0}
+.sp-box{border:1px solid var(--g4);border-radius:14px;padding:12px 14px}
+.sp-h{font-size:16px;font-weight:700;margin-bottom:8px}
+.sp-i{font-size:15px;line-height:1.5;margin:4px 0}
+.sp-ref{font-size:12px;color:var(--g6)}
+.sp-tags{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.sp-tags span{font-size:13px;padding:5px 9px;border-radius:8px;background:rgba(229,83,75,.14);border:1px solid rgba(229,83,75,.4)}
+.sp-bar{position:relative;height:12px;border-radius:6px;background:var(--g4);margin:6px 0 4px}
+.sp-fill{height:100%;border-radius:6px;transition:width .2s}
+.sp-fill.sp-ok{background:#2ea043}.sp-fill.sp-w{background:#d29922}.sp-fill.sp-no{background:#e5534b}
+.sp-m{position:absolute;top:-3px;width:2px;height:18px;background:var(--text2)}
+.sp-sc{position:relative;height:18px;font-size:12px;color:var(--text2);margin-bottom:10px}
+.sp-sc span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+.sp-sc span:first-child{left:0;transform:none}
+.sp-sc span:last-child{transform:translateX(-100%)}
+.sp-codes{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.sp-c{display:flex;flex-direction:column;align-items:center;padding:8px 4px;border-radius:10px;border:1px solid var(--g4);background:transparent;color:var(--text);cursor:pointer;font-family:inherit}
+.sp-c b{font-size:18px}.sp-c span{font-size:12px;color:var(--text2)}
+.sp-hint{font-size:13px;color:var(--text2);margin-top:8px}
+.sp-tot{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:15px;margin-top:10px;padding:8px 10px;border-radius:10px}
+.sp-tot.sp-ok{background:rgba(46,160,67,.12)}.sp-tot.sp-w{background:rgba(210,153,34,.15)}.sp-tot.sp-no{background:rgba(229,83,75,.15)}
+.sp-tags.sp-blue span{background:rgba(77,163,255,.14);border-color:rgba(77,163,255,.4)}
+.sp-f{font-size:16px;padding:10px 12px;border-radius:10px;background:rgba(77,163,255,.12);border-left:3px solid #4da3ff;margin:6px 0}
+.sp-ex{font-size:14px;color:var(--text2)}
+.iv-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:6px;margin:6px 0}
+.iv-tile{border-radius:10px;background:rgba(77,163,255,.10);border:1px solid rgba(77,163,255,.3);padding:8px 10px;display:flex;flex-direction:column}
+.iv-tile b{font-size:20px}.iv-tile span{font-size:13px;color:var(--text2)}.iv-tile em{font-style:normal;font-size:12px;color:#d29922;margin-top:2px}
+.iv-rows{margin:6px 0;border:1px solid var(--g4);border-radius:10px;overflow:hidden}
+.iv-r{display:flex;justify-content:space-between;padding:7px 10px;font-size:15px}.iv-r+.iv-r{border-top:1px solid var(--g4)}
+.iv-tbl{overflow-x:auto;margin:6px 0}
+.iv-tbl table{border-collapse:collapse;font-size:13px;width:100%}
+.iv-tbl th,.iv-tbl td{border:1px solid var(--g4);padding:5px 3px;text-align:center;font-size:12.5px}
+.iv-tbl th{color:var(--text2);font-weight:600}.iv-sev td{text-align:left;font-weight:700;background:rgba(77,163,255,.08)}
+.iv-steps>div{display:flex;gap:8px;font-size:15px;line-height:1.45;margin:6px 0}
+.iv-steps>div>b:first-child{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#4da3ff;color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center}
+.home{grid-template-rows:1fr 1fr 1fr!important;gap:10px}
+.home .home-i{font-size:40px}.home .home-n{font-size:19px;margin-top:2px}.home .home-s{font-size:13px}.home .home-s2{font-size:11.5px}
+.sg-bar{padding:0 12px 6px}
+.sg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:8px;padding:4px 12px 20px}
+.sg-t{display:flex;flex-direction:column;align-items:center;gap:3px;background:var(--card);border:none;border-radius:14px;padding:10px 6px;cursor:pointer;color:var(--text);font-family:inherit}
+.sg-im{height:70px;display:flex;align-items:center;justify-content:center;width:100%}
+.sg-im img{max-height:70px;max-width:100%;object-fit:contain}
+.sg-t b{font-size:14px;color:#4da3ff}
+.sg-d{font-size:11.5px;line-height:1.3;color:var(--text2);text-align:center;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.sg-det{padding:8px 16px 24px}
+.sg-big{display:flex;justify-content:center;padding:14px 0;margin-bottom:12px}
+.sg-big img{max-height:230px;max-width:100%;object-fit:contain}
+.sg-code{font-size:26px;font-weight:800;color:#4da3ff}
+.sg-grp{font-size:12px;color:var(--g6);margin-bottom:8px}
+.sg-title{font-size:18px;font-weight:600;line-height:1.4;margin-bottom:8px}
+.sg-full{font-size:15px;line-height:1.5;color:var(--text2);margin-bottom:10px}
+.sg-nav{display:flex;justify-content:space-between;margin-top:16px}
+.lic-sec{font-size:12px;font-weight:700;color:var(--g6);letter-spacing:.04em;margin:12px 0 6px}
+.lic-ul{margin:0;padding-left:18px}
+.lic-ul li{font-size:15px;line-height:1.45;margin-bottom:5px}
+.lic-ul.note li{color:#ffcc00}
+.lic-foot{font-size:12px;color:var(--g6);margin-top:12px;line-height:1.4}
 </style>
 </head>
 <body>
@@ -488,7 +591,7 @@ body.at-home .hdr .back{display:none}
     <button class="nb" data-t="all" onclick="setTab('az')"><b>📋</b>Παραβάσεις</button>
     <button class="nb" data-t="wiz" onclick="setTab('wiz')"><b>🧮</b>Βοηθός</button>
     <button class="nb" data-t="cats" onclick="setTab('cats')"><b>🗂️</b>Κατηγορίες</button>
-    <button class="nb" data-t="info" onclick="setTab('info')"><b>📘</b>Οδηγίες</button>
+    <button class="nb" data-t="info" onclick="setTab('infoT')"><b>🚛</b>Φορτηγά</button>
   </div>
 </div>
 <div class="ov" id="ov" onclick="ovClick(event)">
@@ -1101,6 +1204,89 @@ const EXTRA = [
 
 const V = BASE.concat(EXTRA);
 
+// Τίτλοι χωρίς κεφαλαία (πεζά με τόνους) — εφαρμόζεται κατά τη φόρτωση
+const TITLE_FIX={
+7:'Μη χρήση ζώνης ασφαλείας — οδηγός',
+12:'Απόρριψη αντικειμένων από το όχημα · αντικείμενα που προκαλούν πυρκαγιά ή ρυπαίνουν',
+15:'Μη χρήση προστατευτικού κράνους — οδηγός δικύκλου ή τρίτροχου',
+16:'ℹ️ Ποιοι εξαιρούνται — αλλοδαπές & ειδικές άδειες οδήγησης',
+17:'Μη χρήση προστατευτικού κράνους — επιβάτης δικύκλου ή τρίτροχου',
+23:'Οδήγηση με εξοπλισμό εντοπισμού συσκευών μέτρησης ταχύτητας (ανιχνευτής ραντάρ)',
+27:'Οδήγηση χωρίς / με ανακληθείσα ή αφαιρεθείσα άδεια — φορτηγό',
+33:'Υποτροπή 2ης φοράς εντός 5 ετών — Ομάδα Α (αλκοόλ 7α/7β, STOP, κόκκινο, ζώνη, κράνος, κινητό, +50 χλμ, ΛΕΑ, ΑμεΑ)',
+42:'Παραβίαση ερυθρού σηματοδότη · ερυθρού αναλάμποντος · ερυθρού βέλους · λωρίδας «Χ»',
+45:'Παράβαση γενικών κανόνων οδικής συμπεριφοράς · μη λήψη μέτρων για εμπόδιο ή κίνδυνο · ζώνη επιβάτη',
+52:'Παράβαση κανόνων προσπέρασης — γενικές περιπτώσεις',
+53:'Παράνομη αλλαγή λωρίδας σε πυκνή κυκλοφορία · παράνομη διήθηση δικύκλων · βραδυπορούντα εκτός δεξιάς λωρίδας',
+54:'Προσπέραση σε απαγορευμένα σημεία — βαριά (σιδηροδρομική διάβαση, διάβαση πεζών, σήραγγα, στροφή)',
+56:'Κίνηση σε αυτοκινητόδρομο με ταχύτητα πάνω από 150 χλμ/ώρα',
+57:'Κίνηση σε οδό ταχείας κυκλοφορίας με ταχύτητα πάνω από 130 χλμ/ώρα',
+58:'Κίνηση στο υπόλοιπο οδικό δίκτυο με ταχύτητα πάνω από 120 χλμ/ώρα',
+61:'ℹ️ Όρια ταχύτητας — πίνακας ανά κατηγορία οχήματος & οδού',
+63:'Οδήγηση με εξοπλισμό παρεμπόδισης συσκευών μέτρησης ταχύτητας (jammer)',
+68:'Μη παραχώρηση προτεραιότητας σε τροχιοδρομικά οχήματα (τραμ) σε κόμβο',
+69:'Μη παραχώρηση προτεραιότητας σε σιδηροδρομικά οχήματα σε ισόπεδο κόμβο',
+140:'Μη προσκόμιση για τεχνικό έλεγχο (ΚΤΕΟ) — λοιπά οχήματα',
+147:'Οδήγηση φορτηγού ή λεωφορείου χωρίς Πιστοποιητικό Επαγγελματικής Ικανότητας (Π.Ε.Ι.)',
+149:'Οδήγηση φορτηγού ή λεωφορείου με ληγμένο Πιστοποιητικό Επαγγελματικής Ικανότητας (Π.Ε.Ι.)',
+151:'Υποτροπή 2ης φοράς εντός 5 ετών — Ομάδα Β (ατύχημα, τρένο, αλκοόλ >1,10, τοξικές, εγκατάλειψη, χωρίς δίπλωμα)',
+152:'Υποτροπή 2ης φοράς εντός 5 ετών — επίδειξη, αυτοσχέδιοι αγώνες, συναγωνισμός, >200 χλμ/ώρα',
+153:'Υποτροπή 3ης (και κάθε επόμενης) φοράς εντός 5 ετών — Ομάδα Α',
+177:'ℹ️ Μετά το ατύχημα — κράτηση οδηγού & εγκαταλελειμμένα οχήματα',
+179:'Αντικατάσταση ή επιδιόρθωση πλαισίου/αμαξώματος χωρίς προηγούμενη ενημέρωση της αρμόδιας υπηρεσίας',
+216:'❌ Έπαψε να ισχύει — Έπαυσαν προϋποθέσεις χορήγησης άδειας ΔΧΦ (1.12)',
+220:'❌ Έπαψε να ισχύει — Μεταφορές με ΔΧΦ διαφορετικής κατηγορίας (1.17)',
+227:'❌ Έπαψε να ισχύει — Μεταφορά προσώπων με ΦΙΧ (1.34)',
+237:'Θέση σε κυκλοφορία οχήματος του οποίου οι πινακίδες έχουν αφαιρεθεί για παραβάσεις του ΚΟΚ',
+243:'Παράνομη διαφήμιση σε εθνικές, επαρχιακές οδούς ή αυτοκινητόδρομους — ζώνες απαγόρευσης',
+248:'Οδήγηση με αλκοόλ 0,10–0,40 mg/l εκπν. αέρα — ειδικό όριο (φορτηγά άνω 3,5τ, νέοι οδηγοί, επαγγελματίες, μοτοσικλετιστές)',
+318:'Τεχνικά χαρακτηριστικά ≠ άδειας κυκλοφορίας — χρώμα (Η46)',
+319:'Τεχνικά χαρακτηριστικά ≠ άδειας κυκλοφορίας — αριθμός θέσεων (Η47)',
+320:'Τεχνικά χαρακτηριστικά ≠ άδειας κυκλοφορίας — άξονες/τροχοί/ελαστικά (Η48)',
+321:'Τεχνικά χαρακτηριστικά ≠ άδειας κυκλοφορίας — καύσιμο (Η49)',
+322:'Τεχνικά χαρακτηριστικά ≠ άδειας κυκλοφορίας — σχήμα (Η50)',
+323:'Τεχνικά χαρακτηριστικά ≠ άδειας κυκλοφορίας — τύπος/είδος αμαξώματος (Η51)',
+324:'Τεχνικά χαρακτηριστικά ≠ άδειας κυκλοφορίας — διαστάσεις αμαξώματος (Η52)',
+325:'Τεχνικά χαρακτηριστικά ≠ άδειας κυκλοφορίας — ελαστικά Ν2/Ν3/Ο3/Ο4 (Η53)',
+380:'ℹ️ Φορτηγά — Κανόνες υπόχρεων & συρροής (ΚΥΑ Γ5/353651-2021)',
+381:'ℹ️ Πότε αφαιρούνται άδεια & πινακίδες κυκλοφορίας — άρθρο 106 παρ. 1',
+383:'Κυκλοφορία/οδήγηση μοτοποδηλάτου χωρίς άδεια κυκλοφορίας, με αφαιρεθείσα ή ληγμένη',
+385:'ℹ️ Αλκοόλ & τοξικές ουσίες — όρια, μέθοδοι ελέγχου & διαδικασία',
+386:'ℹ️ Ακινητοποίηση οχήματος — πότε επιβάλλεται',
+395:'Ποδηλάτης: παραβίαση ερυθρού σηματοδότη με σύμβολο ποδηλάτου (κυκλικού ή με βέλος)',
+397:'ℹ️ Σήμανση ισόπεδων σιδηροδρομικών διαβάσεων',
+398:'Παράνομη διαφήμιση επί οχημάτων (φωτεινή, αντανακλαστική ή με εναλλασσόμενα μηνύματα)',
+402:'Κίνηση οχήματος χωρίς οδηγό',
+409:'Φορτηγά & λεωφορεία: μη κίνηση στη δεξιά λωρίδα κυκλοφορίας',
+411:'Κατάληψη λωρίδων αντίθετης κατεύθυνσης · οδήγηση ανάποδα σε μονόδρομο',
+427:'Γενικοί κανόνες στάθμευσης — παραβάτης, μείωση προστίμου, μεταφορά οχήματος',
+433:'ℹ️ Οχήματα άμεσης ανάγκης & έργα στις οδούς — τι επιτρέπεται',
+438:'ℹ️ Πεζόδρομοι & λιμένες — προτεραιότητες και ειδικές ρυθμίσεις',
+439:'Υπέρβαση διαστάσεων / βάρους / φορτίσεων αξόνων — ειδική άδεια διέλευσης',
+450:'ℹ️ Έγκριση τύπου οχημάτων — προϋποθέσεις κυκλοφορίας',
+452:'ℹ️ Αφαίρεση άδειας και πινακίδων κυκλοφορίας — πρόσθετοι λόγοι',
+453:'ℹ️ Άδειες οδήγησης — ειδικές άδειες, ηλικίες και διεθνής άδεια',
+457:'ℹ️ Βεβαίωση & είσπραξη προστίμων — αντιρρήσεις, προθεσμίες, κάμερες, συρροή',
+458:'Υποτροπή 3ης (και κάθε επόμενης) φοράς εντός 5 ετών — Ομάδα Β',
+459:'ℹ️ Κατηγορίες παραβάσεων Ε1–Ε4 & Σ — τι σημαίνει η καθεμία',
+460:'ℹ️ Υποτροπή & ανάκληση άδειας — ορισμός, Σ.Ε.Σ.Ο., ποινική υποτροπή',
+461:'ℹ️ Μεταβατικές & καταργούμενες διατάξεις Ν. 5209/2025 — τι ισχύει από τον παλιό ΚΟΚ',
+464:'ℹ️ Τεκμήριο υπαιτιότητας του ζημιωθέντος τρίτου σε τροχαίο',
+465:'ℹ️ Φορτηγά & λεωφορεία (Ν. 3446/2006) — όργανα, κλιμάκια προστίμων, υπεύθυνοι, αφαίρεση στοιχείων',
+466:'ℹ️ Χρόνοι οδήγησης, διαλείμματα & ανάπαυση — Καν. (ΕΚ) 561/2006',
+467:'ℹ️ Ταχογράφος & κάρτα οδηγού — Καν. (ΕΕ) 165/2014',
+483:'ADR Β7 — Όχημα που δεν ανταποκρίνεται πλέον στα πρότυπα έγκρισης και παρουσιάζει άμεσο κίνδυνο',
+493:'ADR Β17 — Όχημα που δεν ανταποκρίνεται πλέον στα πρότυπα έγκρισης χωρίς άμεσο κίνδυνο',
+601:'ℹ️ Ταχογράφος — Κανόνες ΚΥΑ Φ450/89969/2023 (πρόστιμα ωρών οδήγησης & ταχογράφου)',
+602:'ℹ️ ΜΜΜ Αθήνας (ΟΑΣΑ) — Επιβίβαση χωρίς εισιτήριο: πρόστιμο & ρόλος Αστυνομίας',
+603:'ℹ️ Σ.Ε.Σ.Ο. (point system) — βαθμοί ποινής, όρια, αφαίρεση άδειας',
+604:'ℹ️ Κατηγορίες άδειας οδήγησης — τι οδηγεί η καθεμία, ηλικίες, ισοδυναμίες',
+605:'ℹ️ Ξένες άδειες οδήγησης — ποιος μπορεί να οδηγεί στην Ελλάδα (ανά χώρα)',
+606:'ℹ️ Οχήματα χωρίς άδεια οδήγησης / στοιχεία κυκλοφορίας — μόνο πρόστιμο · παραβάσεις χωρίς κύρωση → Ε1-Α'
+};
+V.forEach(v=>{ if(TITLE_FIX[v.id]) v.title=TITLE_FIX[v.id]; });
+
+
 // ═══════════════════════════════════════════════════
 // CATEGORIES
 // ═══════════════════════════════════════════════════
@@ -1194,7 +1380,7 @@ const SYN={
  'ζωνη':['ζωνη ασφαλει','ζωνεσ ασφαλει'],
  'κινητο':['κινητο τηλεφων','συσκευη','τηλεφων','ακουστικ'],
  'τηλεφωνο':['κινητο','συσκευη'],
- 'διπλωμα':['αδεια οδηγησ','αδειασ οδηγησ'],
+ 'διπλωμα':['αδεια οδηγησ','αδειασ οδηγησ','αφαιρεθεισα αδεια','ανακληθεισα'],
  'διπλωματα':['αδεια οδηγησ'],
  'πατινι':['επηο','πατιν'],
  'πατινια':['επηο'],
@@ -1262,13 +1448,18 @@ function vIdx(v){
   return v._ix;
 }
 function qTokens(q){return nz(q).replace(/[.,;:·«»"'()\[\]\/\\!?–—-]+/g,' ').split(/\s+/).filter(x=>x.length>0);}
+function tokStem(t){ return t.length>=6?t.slice(0,Math.max(5,t.length-2)):t; }
 function tokVariants(t){
   const vs=[t];
+  const st=tokStem(t); if(st!==t) vs.push(st);           // απλό stemming (κλίσεις) — μετράει σαν ακριβής λέξη
   if(SYN[t]) vs.push(...SYN[t]);
-  if(t.length>=6) vs.push(t.slice(0,t.length-2));        // απλό stemming (κλίσεις)
-  else if(t.length===5) vs.push(t.slice(0,4));
   return vs;
 }
+const WRE={};
+// ταίριασμα στην ΑΡΧΗ λέξης (όχι «κινητ» μέσα σε «αυτοκίνητο») — επιστρέφει θέση ή -1
+function wpos(txt,w){ const re=WRE[w]||(WRE[w]=new RegExp('(^|[^α-ωa-z0-9])'+w.replace(/[.*+?^${}()|[\]\\\/]/g,'\\$&'))); const m=re.exec(txt); return m?m.index+m[1].length:-1; }
+const TAG_DF={};
+function tagDF(w){ if(TAG_DF[w]==null) TAG_DF[w]=V.filter(v=>wpos(vIdx(v).g,w)>=0).length; return TAG_DF[w]; }
 function scoreV(v,q){
   if(!q) return 1;
   const nq=nz(q).trim();
@@ -1286,15 +1477,18 @@ function scoreV(v,q){
   const ix=vIdx(v);
   const toks=qTokens(q); if(!toks.length) return 1;
   let s=0;
-  if(ix.t.includes(nq)) s+=120;
+  if(toks.length>1&&ix.t.includes(nq)) s+=12;
   for(const t of toks){
     const vs=tokVariants(t); let best=0;
     for(let i=0;i<vs.length;i++){
-      const w=vs[i], exact=(i===0)?1:0.7;
-      if(ix.t.includes(w)) best=Math.max(best,30*exact);
-      else if(ix.g.includes(w)) best=Math.max(best,18*exact);
-      else if(ix.a.includes(w)) best=Math.max(best,10*exact);
-      else if(ix.d.includes(w)) best=Math.max(best,4*exact);
+      const w=vs[i], ex=(i===0)||(i===1&&w===tokStem(t));
+      // ακριβής λέξη: τίτλος 30 · ετικέτες 26 · άρθρο 10 · κείμενο 4
+      // συνώνυμο/ρίζα: τίτλος 22 · ετικέτες 16 · άρθρο 6 · κείμενο 0 (αποφεύγει «θόρυβο» από τα διοικητικά μέτρα)
+      const pt=wpos(ix.t,w);
+      if(pt>=0) best=Math.max(best,(ex?30:22)+4*(1-pt/ix.t.length));  // νωρίτερα στον τίτλο = πιο κεντρικό
+      else if(wpos(ix.g,w)>=0) best=Math.max(best,(ex?26:16)*Math.min(1,25/Math.max(1,tagDF(w))));  // ετικέτα πολύ κοινή → μικρότερο βάρος
+      else if(wpos(ix.a,w)>=0) best=Math.max(best,ex?10:6);
+      else if(ex&&wpos(ix.d,w)>=0) best=Math.max(best,4);
     }
     if(!best && /^\d+$/.test(t) && v.amount && String(v.amount)===t) best=15;
     if(!best && (v.cat||'').toLowerCase()===q.toLowerCase()) best=15;
@@ -1302,6 +1496,7 @@ function scoreV(v,q){
     s+=best;
   }
   if(/^ℹ️/.test(v.title)) s*=0.6;    // οι κάρτες πληροφοριών πιο χαμηλά
+  if(/^υποτροπη/.test(nz(v.title))) s*=0.6;  // οι υποτροπές μετά τις βασικές παραβάσεις
   return s;
 }
 function match(v,q){ return !q || scoreV(v,q)>0; }
@@ -1585,16 +1780,16 @@ function renderFilt(){
   const fb=document.querySelector('.tab.ft'); if(fb){ const act=!!(FW||MS); fb.classList.toggle('act',act); fb.textContent=act?'⚙︎ Φίλτρα ●':'⚙︎ Φίλτρα'; }
 }
 function renderInfo(el){
-  const items=V.filter(v=>isInfo(v)&&match(v,Q));
+  const items=V.filter(v=>isInfo(v)&&match(v,Q)&&(Q||!MOVED_CARDS.has(v.id)));
   document.getElementById('vcnt').textContent=items.length;
   if(Q){
     if(!items.length){ el.innerHTML='<div class="empty"><div class="ei">🔍</div><div class="et">Δεν βρέθηκαν οδηγίες</div><div>Δοκιμάστε διαφορετικό όρο αναζήτησης</div></div>'; return; }
     const ranked=items.map(v=>[v,scoreV(v,Q)]).sort((a,b)=>b[1]-a[1]).map(x=>x[0]);
-    el.innerHTML=`<div class="rank-h">📘 Οδηγίες — αποτελέσματα (${ranked.length})</div><div class="grp">${ranked.map(cardHTML).join('')}</div>`; return;
+    el.innerHTML=`<div class="rank-h">📘 Ειδική νομοθεσία — αποτελέσματα (${ranked.length})</div><div class="grp">${ranked.map(cardHTML).join('')}</div>`; return;
   }
   const g=[['🚗 ΚΟΚ — γενικά',items.filter(v=>!isTruckV(v)&&!/ADR|Ταχογράφ|ΤΑΧΟΓΡΑΦ|561\/2006|165\/2014|3446/.test(v.title+v.article))],
            ['🚛 Φορτηγά & λεωφορεία',items.filter(v=>isTruckV(v)||/ADR|Ταχογράφ|ΤΑΧΟΓΡΑΦ|561\/2006|165\/2014|3446/.test(v.title+v.article))]];
-  let h=`<div class="rank-h">📘 Οδηγίες — κανόνες, όρια, διαδικασίες (${items.length})</div>`;
+  let h=`<div class="rank-h">📘 Ειδική νομοθεσία — φορτηγά, ταχογράφος, ADR, Σ.Ε.Σ.Ο., άδειες (${items.length})</div>`;
   g.forEach(([t,arr])=>{ if(!arr.length) return; h+=`<div class="sec">${t} <span style="color:var(--g5);font-weight:400">(${arr.length})</span></div><div class="grp">${arr.sort((a,b)=>a.title.localeCompare(b.title,'el')).map(cardHTML).join('')}</div>`; });
   el.innerHTML=h;
 }
@@ -1700,6 +1895,11 @@ function codeNum(v){ const m=(v.title||'').match(/(?:^ADR [ΑΒΓΔ]|^Ταχογ
 const _openDetail=openDetail;
 openDetail=function(id){
   _openDetail(id);
+  if(INFO_VIEW[id]){ const sc=document.getElementById('sc'); const ms=sc.querySelector('.msec'); if(ms){ const hdr=ms.previousElementSibling; if(hdr&&hdr.classList.contains('sec')) hdr.textContent='Πώς λειτουργεί'; ms.outerHTML=INFO_VIEW[id]()+'<details class="fx-det"><summary>📋 Πλήρες κείμενο</summary>'+ms.outerHTML+'</details>'; } }
+  if(id===601){ const sc=document.getElementById('sc'); const ms=sc.querySelector('.msec'); if(ms){ const hdr=ms.previousElementSibling; if(hdr&&hdr.classList.contains('sec')) hdr.textContent='Πώς λειτουργεί'; ms.outerHTML=tachoInfoHTML()+'<details class="fx-det"><summary>📋 Πλήρες κείμενο κανόνων (άρθρα 3–11)</summary>'+ms.outerHTML+'</details>'; } }
+  if(id===603){ const sc=document.getElementById('sc'); const ms=sc.querySelector('.msec'); if(ms){ const hdr=ms.previousElementSibling; if(hdr&&hdr.classList.contains('sec')) hdr.textContent='Πώς λειτουργεί'; ms.outerHTML=sesoInfoHTML()+'<details class="fx-det"><summary>📋 Πλήρες κείμενο & σημειώσεις εφαρμογής</summary>'+ms.outerHTML+'</details>'; } }
+  if(id===605){ const sc=document.getElementById('sc'); const ms=sc.querySelector('.msec'); if(ms){ FX={c:'',g:'',res:'',veh:'',idp:'',q:''}; const hdr=ms.previousElementSibling; if(hdr&&hdr.classList.contains('sec')) hdr.textContent='Μπορεί να οδηγεί στην Ελλάδα;'; ms.outerHTML=fxHTML()+'<details class="fx-det"><summary>📋 Όλες οι περιπτώσεις της εγκυκλίου & λίστες χωρών</summary>'+ms.outerHTML+'</details>'; } }
+  if(id===604){ const sc=document.getElementById('sc'); const ms=sc.querySelector('.msec'); if(ms){ const hdr=ms.previousElementSibling; if(hdr&&hdr.classList.contains('sec')) hdr.textContent='Επιλέξτε κατηγορία'; ms.outerHTML=licTabsHTML(); } }
   const v=V.find(x=>x.id===id); if(!v||/^ℹ️/.test(v.title)) return;
   const sc=document.getElementById('sc'); const t=sc.querySelector('.sttl'); if(!t) return;
   const inB=SELECTED.has(id);
@@ -1839,7 +2039,7 @@ const KYA_TERM={
  'Ζ4':'Μετά από αλλαγή ιδιοκτήτη ή μεταβολή τεχνικών στοιχείων πρέπει να εκδοθεί νέα άδεια κυκλοφορίας.',
  'Ζ5':'Οι πινακίδες αριθμού κυκλοφορίας πρέπει να είναι τοποθετημένες.','Ζ6':'Οι πινακίδες αριθμού κυκλοφορίας πρέπει να είναι τοποθετημένες και στο ρυμουλκούμενο.',
  'Ζ7':'Πινακίδες παραποιημένες, μετατεθειμένες από άλλο όχημα ή μη νόμιμες.','Ζ8':'Οι πινακίδες πρέπει να είναι καθαρές και αναγνώσιμες, και από κάμερες.',
- 'Ζ9':'Απαιτείται άδεια οδήγησης κατάλληλης κατηγορίας (C1/C/CE κ.λπ.) — βλ. Οδηγίες → «Κατηγορίες άδειας οδήγησης». Επιπλέον τα μέτρα του άρθρου 98 παρ. 4α ΚΟΚ.',
+ 'Ζ9':'Απαιτείται άδεια οδήγησης κατάλληλης κατηγορίας (C1/C/CE κ.λπ.) — βλ. Ειδική νομοθεσία → «Κατηγορίες άδειας οδήγησης». Επιπλέον τα μέτρα του άρθρου 98 παρ. 4α ΚΟΚ.',
  'Ζ10':'Η κατηγορία C/CE της άδειας οδήγησης ανανεώνεται περιοδικά· οδήγηση μετά τη λήξη της.',
  'Ζ11':'Ημέρες και ώρες απαγόρευσης κυκλοφορίας φορτηγών (π.χ. εορτές, Σαββατοκύριακα θερινής περιόδου), κατά ΚΥΑ.',
  'Ζ12':'Περιοχές όπου απαγορεύεται η κυκλοφορία πετρελαιοκίνητων ΦΙΧ (π.χ. Δακτύλιος Αθηνών).',
@@ -1886,18 +2086,384 @@ function fitHome(){
 }
 window.addEventListener('resize',()=>{ if(TAB==='home') fitHome(); });
 function renderHome(el){
-  const nK=V.filter(v=>!isTruckV(v)&&!isInfo(v)).length, nF=V.filter(v=>isTruckV(v)&&!isInfo(v)).length, nI=V.filter(isInfo).length;
+  const nK=V.filter(v=>!isTruckV(v)&&!isInfo(v)).length, nF=V.filter(v=>isTruckV(v)&&!isInfo(v)).length, nI=V.filter(v=>isInfo(v)&&!MOVED_CARDS.has(v.id)).length;
+  const nT=V.filter(v=>isInfo(v)&&!MOVED_CARDS.has(v.id)&&isTrInfo(v)).length;
   const T=[
     ['az','📋','Παραβάσεις',`${nK} ΚΟΚ · ${nF} φορτηγών`,'Αναζήτηση, φίλτρα και σύνολο προστίμου','#0a84ff'],
     ['wiz','🧮','Βοηθός','Ταχύτητα · Αλκοόλ · Βάρος','Ώρες οδήγησης · Ετοιμότητα','#34c759'],
     ['cats','🗂️','Κατηγορίες','Ε1 – Ε4 · Σ','Ποσά, αφαιρέσεις, υποτροπή','#ff9500'],
-    ['info','📘','Οδηγίες',`${nI} κάρτες`,'Κανόνες, άδειες οδήγησης, ΣΕΣΟ, ADR','#af52de']];
+    ['infoT','🚛','Φορτηγά',`${nT} κάρτες`,'Ν.3446 · ταχογράφος · ADR','#af52de'],
+    ['infoK','🪪','Άδειες & λοιπά',`${nI-nT} κάρτες`,'Ξένες άδειες · κατηγορίες · Σ.Ε.Σ.Ο.','#5ac8fa'],
+    ['signs','🚸','Πινακίδες','322 πινακίδες','Κινδύνου · ρυθμιστικές · πληροφοριακές','#ff375f']];
   setTimeout(fitHome,0);
   el.innerHTML=`<div class="home">${T.map(t=>`<button class="home-t" style="--hc:${t[5]}" onclick="setTab('${t[0]}')"><span class="home-i">${t[1]}</span><span class="home-n">${t[2]}</span><span class="home-s">${t[3]}</span><span class="home-s2">${t[4]}</span></button>`).join('')}</div>`;
 }
 
-// Σημείωση άρθρου 106 παρ. 9 σε παραβάσεις ΚΟΚ με αφαίρεση άδειας ή στοιχείων
-V.forEach(v=>{ if(isTruckV(v)||isInfo(v)) return; const s=msOf(v); if(s.has('lic')||s.has('plt')) v.measures=(v.measures||[]).concat(['🚲 Άρθρο 106 παρ. 9: αν το όχημα ΔΕΝ απαιτεί άδεια οδήγησης ή/και στοιχεία κυκλοφορίας (π.χ. ποδήλατο, Ε.Π.Η.Ο.), επιβάλλεται ΜΟΝΟ το διοικητικό πρόστιμο — όχι η αντίστοιχη αφαίρεση (βλ. Οδηγίες)']); });
+// Σημείωση άρθρου 106 παρ. 9 μόνο σε παραβάσεις για ποδήλατα, Ε.Π.Η.Ο., ζωήλατα (οχήματα χωρίς άδεια οδήγησης/στοιχεία)
+const ART106_9=new Set([96,97,105,106,107,108,110,129,134,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,384,395,396,442,446]);
+V.forEach(v=>{ if(ART106_9.has(v.id)) v.measures=(v.measures||[]).concat(['🚲 Άρθρο 106 παρ. 9: αν το όχημα ΔΕΝ απαιτεί άδεια οδήγησης ή/και στοιχεία κυκλοφορίας (π.χ. ποδήλατο, Ε.Π.Η.Ο.), επιβάλλεται ΜΟΝΟ το διοικητικό πρόστιμο — όχι η αντίστοιχη αφαίρεση (βλ. Κατ’ Άρθρο → Άρθρο 106)']); });
+
+// ═══════════════════════════════════════════════════
+// ΚΑΤΗΓΟΡΙΕΣ ΑΔΕΙΑΣ ΟΔΗΓΗΣΗΣ — προβολή με tabs ανά κατηγορία (κάρτα 604)
+// Πηγή: Πίνακας 1, Εγκύκλιος ΥΠΥΜΕ Δ30/Α3/76710/13.05.2026 · π.δ. 51/2012
+// ═══════════════════════════════════════════════════
+const LIC_GROUPS=[['🏍️ Μοτό',['ΑΜ','Α1','Α2','Α']],['🚗 Αυτοκίνητα',['Β1','Β','ΒΕ']],['🚚 Φορτηγά',['C1','C1E','C','CE']],['🚌 Λεωφορεία',['D1','D1E','D','DE']]];
+const LIC_CATS={
+ 'ΑΜ':{age:'16',veh:['Ελαφρύ δίκυκλο: έως 50 cm³ (βενζίνη) ή έως 4 kW, μέγιστη ταχύτητα 45 km/h','Τρίκυκλο μοτοποδήλατο: έως 50 cm³ βενζίνη ή 500 cm³ πετρέλαιο, έως 4 kW, έως 270 kg, έως 2 θέσεις','Ελαφρύ τετράκυκλο: έως 425 kg, έως 45 km/h, έως 2 θέσεις'],
+   also:['Β — εφόσον κατέχει τη Β πάνω από 6 έτη ΚΑΙ είναι 27 ετών','Α1','Α2','Α'],note:['Μοτοποδήλατα με μέγιστη ταχύτητα έως 25 km/h: ΔΕΝ απαιτείται άδεια οδήγησης']},
+ 'Α1':{age:'18',veh:['Μοτοσικλέτα έως 125 cm³, έως 11 kW, λόγος ισχύος/βάρους έως 0,1 kW/kg','Τρίκυκλο έως 15 kW'],
+   also:['Β — για μοτοσικλέτα Α1: ΑΜ πάνω από 4 έτη + Β πάνω από 4 έτη + 27 ετών','Β με κωδικό 121 — Β πάνω από 6 έτη + 5 μαθήματα πρακτικής, από 27 ετών','Α2','Α'],
+   note:['Τρίκυκλο έως 15 kW με Β: μόνο αν η Β χορηγήθηκε έως 18-01-2013 — για μεταγενέστερες το δικαίωμα παύει με τη λήξη της Β και δεν μεταφέρεται με την ανανέωση']},
+ 'Α2':{age:'20',veh:['Μοτοσικλέτα έως 35 kW, λόγος ισχύος/βάρους έως 0,2 kW/kg','Όχι από διασκευή μοτοσικλέτας με ισχύ πάνω από το διπλάσιο'],also:['Α'],note:[]},
+ 'Α':{age:'24 — ή 22 αν κατέχει Α2 για 2 έτη',veh:['Κάθε μοτοσικλέτα','Τρίκυκλο άνω των 15 kW'],also:[],
+   note:['Τρίκυκλο άνω των 15 kW με Β: μόνο αν η Β χορηγήθηκε έως 18-01-2013']},
+ 'Β1':{age:'18',veh:['Τετράκυκλο (όχι ελαφρύ): έως 450 kg επιβατικό ή έως 600 kg εμπορευματικό'],also:['Β'],note:['ΔΕΝ χορηγείται στην Ελλάδα — καταχωρείται μόνο από ανταλλαγή ξένης άδειας']},
+ 'Β':{age:'18 — 17 με συνοδό (ν. 4850/2021)',veh:['Αυτοκίνητο έως 3.500 kg, έως 8 επιβάτες πέραν του οδηγού','+ ρυμουλκούμενο έως 750 kg','ή ρυμουλκούμενο άνω των 750 kg, αν ο συνδυασμός δεν ξεπερνά τα 3.500 kg','Τετράκυκλα (Β1)'],also:[],
+   note:['Κωδικός 96: συνδυασμός Β + ρυμουλκούμενο άνω των 750 kg, συνολικά 3.500–4.250 kg','Κωδικός 121: μοτοσικλέτα Α1 (βλ. Α1)','Οχήματα εναλλακτικών καυσίμων έως 4.250 kg: με Β πάνω από 2 έτη, αν το επιπλέον βάρος οφείλεται μόνο στο σύστημα πρόωσης']},
+ 'ΒΕ':{age:'18',veh:['Β + ρυμουλκούμενο ή ημιρυμουλκούμενο έως 3.500 kg'],also:['C1E','CE','D1E','DE'],note:[]},
+ 'C1':{age:'18',veh:['Φορτηγό 3.500–7.500 kg, έως 8 επιβάτες πέραν του οδηγού','+ ρυμουλκούμενο έως 750 kg'],also:['C'],note:[]},
+ 'C1E':{age:'18',veh:['C1 + ρυμουλκούμενο άνω των 750 kg, συνδυασμός έως 12.000 kg','Β + ρυμουλκούμενο άνω των 3.500 kg, συνδυασμός έως 12.000 kg'],also:['CE'],note:[]},
+ 'C':{age:'21 — 18 με ΠΕΙ (κωδικός 95)',veh:['Φορτηγό άνω των 3.500 kg, έως 8 επιβάτες πέραν του οδηγού','+ ρυμουλκούμενο έως 750 kg'],also:[],note:[]},
+ 'CE':{age:'21 — 18 με ΠΕΙ (κωδικός 95)',veh:['C + ρυμουλκούμενο ή ημιρυμουλκούμενο άνω των 750 kg'],also:[],note:[]},
+ 'D1':{age:'21',veh:['Λεωφορείο έως 16 επιβάτες πέραν του οδηγού, μήκος έως 8 m','+ ρυμουλκούμενο έως 750 kg'],also:['D'],note:[]},
+ 'D1E':{age:'21',veh:['D1 + ρυμουλκούμενο άνω των 750 kg'],also:['DE'],note:[]},
+ 'D':{age:'24 — 21 με ΠΕΙ (κωδικός 95)',veh:['Λεωφορείο άνω των 8 επιβατών πέραν του οδηγού','+ ρυμουλκούμενο έως 750 kg'],also:[],note:[]},
+ 'DE':{age:'24 — 21 με ΠΕΙ (κωδικός 95)',veh:['D + ρυμουλκούμενο άνω των 750 kg'],also:['CE — εφόσον ο οδηγός κατέχει και τη D'],note:[]}
+};
+let LIC_SEL='Β';
+function licPanel(){
+  const c=LIC_CATS[LIC_SEL];
+  return `<div class="lic-head"><span class="lic-code">${LIC_SEL}</span><span class="lic-age">από ${c.age} ετών</span></div>
+   <div class="lic-sec">🚘 Τι οδηγεί</div><ul class="lic-ul">${c.veh.map(x=>`<li>${x}</li>`).join('')}</ul>
+   ${c.also.length?`<div class="lic-sec">🔁 Οδηγείται και με</div><ul class="lic-ul">${c.also.map(x=>`<li>${x}</li>`).join('')}</ul>`:''}
+   ${c.note.length?`<div class="lic-sec">⚠️ Προσοχή</div><ul class="lic-ul note">${c.note.map(x=>`<li>${x}</li>`).join('')}</ul>`:''}`;
+}
+function licTabsHTML(){
+  return `<div id="lic-tabs">${LIC_GROUPS.map(([g,cs])=>`<div class="lic-g"><span>${g}</span><div>${cs.map(k=>`<button class="lic-t${k===LIC_SEL?' on':''}" onclick="licSel('${k}')">${k}</button>`).join('')}</div></div>`).join('')}<div id="lic-panel">${licPanel()}</div>
+   <div class="lic-foot">➡️ Οδήγηση χωρίς την κατάλληλη κατηγορία: άρθρο 98 παρ. 4α ΚΟΚ · Πηγή: Πίνακας 1 Εγκυκλίου Δ30/Α3/76710/13.05.2026</div></div>`;
+}
+function licSel(k){ LIC_SEL=k; document.querySelectorAll('.lic-t').forEach(b=>b.classList.toggle('on',b.textContent===k)); const p=document.getElementById('lic-panel'); if(p) p.innerHTML=licPanel(); }
+
+// ═══════════════════════════════════════════════════
+// ΞΕΝΕΣ ΑΔΕΙΕΣ — «Μπορεί να οδηγεί;» (κάρτα 605)
+// Πηγή: Εγκύκλιος ΥΠΥΜΕ Δ30/Α3/76710/13.05.2026 · άρθρο 98 παρ. 3 ΚΟΚ
+// ═══════════════════════════════════════════════════
+const FX_C={
+ eu:'Αυστρία,Βέλγιο,Βουλγαρία,Γαλλία,Γερμανία,Δανία,Εσθονία,Ιρλανδία,Ισλανδία,Ισπανία,Ιταλία,Κροατία,Κύπρος,Λετονία,Λιθουανία,Λιχτενστάιν,Λουξεμβούργο,Μάλτα,Νορβηγία,Ολλανδία,Ουγγαρία,Πολωνία,Πορτογαλία,Ρουμανία,Σλοβακία,Σλοβενία,Σουηδία,Τσεχία,Φινλανδία',
+ ch:'Ελβετία',
+ bil:'Σερβία,Αλβανία,Ηνωμένα Αραβικά Εμιράτα,Μολδαβία,Γεωργία',
+ us:'ΗΠΑ,Καναδάς,Αυστραλία,Ηνωμένο Βασίλειο,Γιβραλτάρ',
+ ua:'Ουκρανία',
+ vie:'Αγία Έδρα,Άγιος Μαρίνος,Αζερμπαϊτζάν,Αίγυπτος,Αιθιοπία,Ακτή Ελεφαντοστού,Ανδόρα,Αρμενία,Βενεζουέλα,Βιετνάμ,Βόρεια Μακεδονία,Βοσνία-Ερζεγοβίνη,Βραζιλία,Γκάνα,Γουιάνα,Κεντρική Αφρική,Νότια Κορέα,Λευκορωσία,Ζιμπάμπουε,Ινδονησία,Ιράκ,Ιράν,Ισημερινός,Ισραήλ,Καζακστάν,Κατάρ,Κένυα,Κιργιζιστάν,Κόστα Ρίκα,Κούβα,Κουβέιτ,Λ.Δ. Κονγκό,Λιβερία,Μαρόκο,Μαλδίβες,Μαυροβούνιο,Μεξικό,Μιανμάρ,Μογγολία,Μονακό,Μπαχάμες,Μπαχρέιν,Μπενίν,Νίγηρας,Νιγηρία,Νότια Αφρική,Ομάν,Ονδούρα,Ουζμπεκιστάν,Ουρουγουάη,Πακιστάν,Παλαιστίνη,Πράσινο Ακρωτήριο,Περού,Ρωσία,Σαουδική Αραβία,Σενεγάλη,Σεϋχέλλες,Ταϊλάνδη,Τατζικιστάν,Τουρκία,Τουρκμενιστάν,Τυνησία,Φιλιππίνες,Χιλή',
+ oth:'Ινδία,Κίνα,Ιαπωνία,Αργεντινή,Νέα Ζηλανδία,Αλγερία,Λίβανος,Συρία,Αφγανιστάν,Μπαγκλαντές,Ιορδανία,Λιβύη,Σουδάν,Σρι Λάνκα,Κολομβία,Σιγκαπούρη,Μαλαισία'
+};
+const FX_LIST=[]; Object.keys(FX_C).forEach(g=>FX_C[g].split(',').forEach(n=>FX_LIST.push({n,g})));
+FX_LIST.sort((a,b)=>a.n.localeCompare(b.n,'el'));
+const FX_ALIAS={'ηπα':'ΗΠΑ','αμερικη':'ΗΠΑ','usa':'ΗΠΑ','αγγλια':'Ηνωμένο Βασίλειο','βρετανια':'Ηνωμένο Βασίλειο','uk':'Ηνωμένο Βασίλειο','εμιρατα':'Ηνωμένα Αραβικά Εμιράτα','ντουμπαι':'Ηνωμένα Αραβικά Εμιράτα','σκοπια':'Βόρεια Μακεδονία','fyrom':'Βόρεια Μακεδονία','κορεα':'Νότια Κορέα','βατικανο':'Αγία Έδρα','σαν μαρινο':'Άγιος Μαρίνος','κονγκο':'Λ.Δ. Κονγκό','ολλανδια':'Ολλανδία','κατω χωρες':'Ολλανδία','γερμανια':'Γερμανία'};
+let FX={c:'',g:'',res:'',veh:'',idp:'',q:''};
+function fxGrp(c){ if(c==='__oth') return 'oth'; const f=FX_LIST.find(x=>x.n===c); return f?f.g:''; }
+function fxDecide(s){
+  const g=s.g; if(!g) return {need:'c'};
+  if(g==='eu') return {k:'ok',t:'Ισχύει χωρίς περιορισμό, για όλες τις κατηγορίες της άδειας. Οποιαδήποτε κατηγορία καλύπτει και την ΑΜ.',b:'Περ. 1 — ΕΕ/ΕΟΧ'};
+  if(g==='ch') return {k:'cond',t:'Μόνο εντός 12 μηνών από την είσοδό του στην Ελλάδα.',x:['Ελέγξτε την ημερομηνία εισόδου.','Μετά τους 12 μήνες: χρειάζεται ελληνική άδεια (μετατροπή μπορεί να ζητηθεί από τον 9ο μήνα).'],b:'Περ. 2 — Ελβετία (ν. 1333/1983)'};
+  if(!s.res) return {need:'res'};
+  if(s.res==='dip') return {k:'ok',t:'Ισχύει με το Δελτίο Ταυτότητας της Διεύθυνσης Εθιμοτυπίας ΥΠΕΞ.',x:['Η άδεια συνοδεύεται από επίσημα μεταφρασμένη βεβαίωση της εκδούσας αρχής για τις κατηγορίες.'],b:'Περ. 5 — Διπλωμάτες (άρθρο 98 παρ. 3στ)'};
+  const yes=s.res==='yes';
+  if(g==='bil') return yes?{k:'no',t:'Με συνήθη διαμονή στην Ελλάδα η άδεια δεν ισχύει πλέον — έπρεπε να μετατραπεί σε ελληνική.',b:'Περ. 3 — Διμερής συμφωνία (υ.α. 50984/7947/2013)'}:{k:'ok',t:'Ισχύει όσο δεν έχει συνήθη διαμονή στην Ελλάδα.',b:'Περ. 3 — Διμερής συμφωνία'};
+  if(g==='vie') return yes?{k:'no',t:'Με συνήθη διαμονή στην Ελλάδα η άδεια της Σύμβασης Βιέννης δεν ισχύει.',b:'Περ. 4 — Σύμβαση Βιέννης (άρθρο 98 παρ. 3δ)'}:{k:'ok',t:'Ισχύει η εθνική του άδεια (εφόσον είναι σύμφωνη με το Παράρτημα 6 του ν. 4266/2014).',b:'Περ. 4 — Σύμβαση Βιέννης (άρθρο 98 παρ. 3δ)'};
+  if(g==='ua'){
+    const exp=new Date()>new Date('2027-03-04T23:59:59');
+    if(!yes) return {k:'ok',t:'Ισχύει η ουκρανική άδεια (Σύμβαση Βιέννης).',x:exp?[]:['Αν είναι δικαιούχος προσωρινής προστασίας, ισχύει ακόμη και ληγμένη έως 4.3.2027.'],b:'Περ. 4 & 9'};
+    return exp?{k:'no',t:'Η ειδική ρύθμιση για Ουκρανούς έληξε στις 4.3.2027 και με συνήθη διαμονή δεν ισχύει η Σύμβαση Βιέννης.',b:'Περ. 9'}:{k:'cond',t:'Μόνο αν είναι δικαιούχος προσωρινής προστασίας — έως 4.3.2027 (ισχύει και ληγμένη άδεια).',x:['Δικαιούχοι: Ουκρανοί που διέμεναν στην Ουκρανία πριν τις 24.2.2022, πρόσφυγες/ανιθαγενείς με προστασία στην Ουκρανία πριν τις 24.2.2022 και οι οικογένειές τους.','Αν δεν είναι δικαιούχος: ΔΕΝ μπορεί να οδηγεί.'],b:'Περ. 9 — Καν. ΕΕ 2022/1280'};
+  }
+  if(g==='us'){
+    if(!s.veh) return {need:'veh'};
+    if(s.veh==='light') return {k:'ok',t:'Ισχύει για μοτοποδήλατα, μοτοσικλέτες, τρίκυκλα, τετράκυκλα και επιβατικά — είτε είναι επισκέπτης είτε κατοικεί εδώ.',x:['Μετάφραση μόνο αν οι εγγραφές δεν είναι στα ελληνικά ή αγγλικά.','Κατηγορίες ανά Πολιτεία/Επαρχία: Πίνακες 5–7 της εγκυκλίου.'],b:'Περ. 7'};
+    if(yes) return {k:'no',t:'Για φορτηγά/λεωφορεία η άδεια αυτή δεν ισχύει όταν έχει συνήθη διαμονή στην Ελλάδα.',b:'Περ. 7 — μόνο ελαφρά οχήματα'};
+    if(s.c==='Ηνωμένο Βασίλειο') return {k:'ok',t:'Ισχύει η βρετανική άδεια (Σύμβαση Βιέννης), εφόσον έχει την αντίστοιχη κατηγορία.',b:'Περ. 4 — Σύμβαση Βιέννης'};
+    if(!s.idp) return {need:'idp'};
+    return s.idp==='yes'?{k:'ok',t:'Ισχύει η διεθνής άδεια ΜΑΖΙ με την εθνική του άδεια.',x:['Και οι δύο πρέπει να είναι σε ισχύ.'],b:'Περ. 8 — Διεθνής άδεια'}:{k:'no',t:'Για φορτηγό/λεωφορείο χρειάζεται διεθνής άδεια μαζί με την εθνική.',b:'Περ. 7 & 8'};
+  }
+  // λοιπές χώρες
+  if(yes) return {k:'no',t:'Άδεια τρίτης χώρας εκτός συμφωνιών δεν ισχύει όταν έχει συνήθη διαμονή στην Ελλάδα.',b:'Άρθρο 98 παρ. 3'};
+  if(!s.idp) return {need:'idp'};
+  if(s.idp==='yes') return {k:'ok',t:'Ισχύει η διεθνής άδεια ΜΑΖΙ με την εθνική του άδεια.',x:['Και οι δύο πρέπει να είναι σε ισχύ.'],b:'Περ. 8 — Διεθνής άδεια'};
+  if(!s.veh) return {need:'veh'};
+  if(s.veh==='heavy') return {k:'no',t:'Χωρίς διεθνή άδεια δεν μπορεί να οδηγεί φορτηγό/λεωφορείο.',b:'Περ. 6 & 8'};
+  return {k:'cond',t:'Μόνο αν η χώρα του ΔΕΝ εκδίδει διεθνή άδεια οδήγησης — και με επίσημη μετάφραση στα ελληνικά ή αγγλικά.',x:['Αν η χώρα εκδίδει διεθνή άδεια και δεν την έχει: ΔΕΝ μπορεί να οδηγεί.'],b:'Περ. 6 — άρθρο 98 παρ. 3ζ'};
+}
+function fxBtn(key,val,label){ return `<button class="lic-t fx-b${FX[key]===val?' on':''}" onclick="fxSet('${key}','${val}')">${label}</button>`; }
+function fxQ(n,title,inner){ return `<div class="fx-q"><div class="fx-qt"><b>${n}</b> ${title}</div><div class="fx-row">${inner}</div></div>`; }
+function fxInner(){
+  let h='';
+  // 1. Χώρα
+  if(FX.c){
+    const nm=FX.c==='__oth'?'Άλλη χώρα':FX.c;
+    h+=fxQ(1,'Χώρα έκδοσης της άδειας',`<button class="lic-t on fx-b">${nm}</button><button class="fx-chg" onclick="fxReset()">αλλαγή</button>`);
+  } else {
+    const q=nz(FX.q||''); let m=[];
+    if(q){ const al=Object.keys(FX_ALIAS).filter(a=>a.startsWith(q)).map(a=>FX_ALIAS[a]);
+      m=FX_LIST.filter(x=>nz(x.n).split(/[\s-]+/).some(w=>w.startsWith(q))||nz(x.n).startsWith(q)).map(x=>x.n);
+      m=[...new Set(al.concat(m))].slice(0,10); }
+    const quick=q?m:['Αλβανία','Ηνωμένο Βασίλειο','Ουκρανία','ΗΠΑ','Τουρκία','Γεωργία','Βόρεια Μακεδονία','Ελβετία'];
+    h+=fxQ(1,'Χώρα έκδοσης της άδειας',`<input id="fx-in" class="fx-in" placeholder="Γράψτε χώρα… (ΕΕ: οποιοδήποτε κράτος-μέλος)" value="${(FX.q||'').replace(/"/g,'&quot;')}" oninput="fxType(this.value)" autocomplete="off"><div class="fx-row">${quick.map(c=>`<button class="lic-t fx-b" onclick="fxPick('${c}')">${c}</button>`).join('')}<button class="lic-t fx-b fx-oth" onclick="fxPick('__oth')">Άλλη χώρα</button>${q&&!m.length?'<span class="fx-none">Δεν βρέθηκε — επιλέξτε «Άλλη χώρα»</span>':''}</div>`);
+    return h;
+  }
+  const d=fxDecide(FX); let n=2;
+  const steps=[];
+  if(FX.res||d.need==='res') steps.push('res');
+  if(FX.idp||d.need==='idp') steps.push('idp');
+  if(FX.veh||d.need==='veh') steps.push('veh');
+  // σειρά εμφάνισης όπως ζητήθηκαν
+  const order=FX.g==='oth'?['res','idp','veh']:['res','veh','idp'];
+  order.filter(k=>steps.includes(k)).forEach(k=>{
+    if(k==='res') h+=fxQ(n++,'Έχει συνήθη διαμονή (κατοικεί) στην Ελλάδα;',fxBtn('res','no','Όχι — επισκέπτης')+fxBtn('res','yes','Ναι — κατοικεί εδώ')+fxBtn('res','dip','Διπλωμάτης'));
+    if(k==='veh') h+=fxQ(n++,'Τι όχημα οδηγεί;',fxBtn('veh','light','🏍️🚗 Μοτό / επιβατικό')+fxBtn('veh','heavy','🚚🚌 Φορτηγό / λεωφορείο'));
+    if(k==='idp') h+=fxQ(n++,'Έχει και διεθνή άδεια οδήγησης;',fxBtn('idp','yes','Ναι')+fxBtn('idp','no','Όχι'));
+  });
+  if(d.k){
+    const L={ok:['✅','ΜΠΟΡΕΙ ΝΑ ΟΔΗΓΕΙ'],cond:['⚠️','ΜΠΟΡΕΙ — ΥΠΟ ΠΡΟΫΠΟΘΕΣΗ'],no:['❌','ΔΕΝ ΜΠΟΡΕΙ ΝΑ ΟΔΗΓΕΙ']}[d.k];
+    h+=`<div class="fx-res fx-${d.k}"><div class="fx-v">${L[0]} ${L[1]}</div><div class="fx-t">${d.t}</div>${(d.x||[]).map(x=>`<div class="fx-x">• ${x}</div>`).join('')}<div class="fx-bs">${d.b}</div>`;
+    if(d.k!=='ok'){ const ids=FX.veh==='heavy'?[27,146]:[144,145];
+      h+=`<div class="fx-lk">${d.k==='no'?'Παράβαση':'Αν δεν ισχύει η προϋπόθεση'}: οδήγηση χωρίς άδεια — άρθρο 98 παρ. 4α${ids.map(i=>{const v=V.find(x=>x.id===i);return v?`<button class="fx-go" onclick="openDetail(${i})">→ ${v.title}</button>`:''}).join('')}</div>`; }
+    h+=`<div class="fx-al">Σε κάθε περίπτωση: η άδεια να είναι σε ισχύ και να καλύπτει την κατηγορία του οχήματος.</div></div>`;
+  }
+  return h;
+}
+function fxHTML(){ return `<div id="fx-box" class="fx-box">${fxInner()}</div>`; }
+function fxDraw(focus){ const b=document.getElementById('fx-box'); if(!b) return; b.innerHTML=fxInner(); if(focus){ const i=document.getElementById('fx-in'); if(i){ i.focus(); i.setSelectionRange(i.value.length,i.value.length);} } }
+function fxType(v){ FX.q=v; fxDraw(true); }
+function fxPick(c){ FX={c,g:fxGrp(c),res:'',veh:'',idp:'',q:''}; fxDraw(); }
+function fxReset(){ FX={c:'',g:'',res:'',veh:'',idp:'',q:''}; fxDraw(); }
+function fxSet(k,v){ FX[k]=v; if(k==='res'){FX.veh='';FX.idp='';} if(k==='idp'&&FX.g==='oth') FX.veh=''; fxDraw(); }
+
+// ═══════════════════════════════════════════════════
+// Σ.Ε.Σ.Ο. — δομημένη προβολή (κάρτα 603) · ΚΥΑ 21504/2601/2007
+// ═══════════════════════════════════════════════════
+let SP=[];
+function spAdd(n){ SP.push(n); spDraw(); }
+function spClr(){ SP=[]; spDraw(); }
+function spDraw(){ const b=document.getElementById('sp-calc'); if(b) b.innerHTML=spCalcInner(); }
+function spCalcInner(){
+  const t=SP.reduce((a,b)=>a+b,0), pct=Math.min(100,t/25*100);
+  const st=t>=25?['sp-no','🛑 Αφαίρεση άδειας οδήγησης']:t>=15?['sp-w','⚠️ Προειδοποιητικό έγγραφο']:['sp-ok','Κάτω από το όριο'];
+  const L={3:'Γ/Φ',5:'Ε',7:'Ζ',9:'Θ'};
+  return `<div class="sp-bar"><div class="sp-fill ${st[0]}" style="width:${pct}%"></div><span class="sp-m" style="left:60%"></span><span class="sp-m" style="left:100%"></span></div>
+  <div class="sp-sc"><span>0</span><span style="left:60%">15 ⚠️</span><span style="left:100%">25 🛑</span></div>
+  <div class="sp-codes">${[3,5,7,9].map(n=>`<button class="sp-c" onclick="spAdd(${n})"><b>${L[n]}</b><span>${n} βαθμοί</span></button>`).join('')}</div>
+  ${SP.length?`<div class="sp-tot ${st[0]}"><span>${SP.map(n=>L[n]).join(' + ')} = <b>${t}</b> βαθμοί → ${st[1]}</span><button class="fx-chg" onclick="spClr()">μηδενισμός</button></div>`:'<div class="sp-hint">Πατήστε τους κωδικούς για να αθροίσετε βαθμούς. Σε συρροή μετράνε ΟΛΕΣ οι παραβάσεις.</div>'}`;
+}
+function spBox(ic,title,items){ return `<div class="sp-box"><div class="sp-h">${ic} ${title}</div>${items.map(x=>`<div class="sp-i">${x}</div>`).join('')}</div>`; }
+function sesoInfoHTML(){
+  SP=[];
+  return `<div class="fx-box">
+  <div class="sp-box"><div class="sp-h">🔢 Βαθμοί ανά κωδικό & όρια</div><div id="sp-calc">${spCalcInner()}</div><div class="sp-ref">άρθρα 2, 3, 6, 7</div></div>
+  ${spBox('🛑','Αφαίρεση άδειας ΧΩΡΙΣ βαθμούς',['Αν διαπράξει την <b>ίδια παράβαση 2η φορά μέσα σε 1 έτος</b>:',
+   '<div class="sp-tags"><span>Ρ-1 / Ρ-2 (προτεραιότητα / STOP)</span><span>Ερυθρός σηματοδότης</span><span>Επίδειξη / αγώνες</span><span>Σιδηροδρομική διάβαση</span><span>Αναστροφή / οπισθοπορεία / διαχωριστική σε αυτοκινητόδρομο</span><span>Αλκοόλ (κάθε βαθμίδα)</span></div>',
+   '<span class="sp-ref">άρθρο 3 παρ. 3</span>'])}
+  ${spBox('👮','Στον έλεγχο',['<b>Η κλήση</b> αναφέρει ότι η παράβαση υπάγεται στο Σ.Ε.Σ.Ο. και, αν γίνεται, τους βαθμούς.',
+   '<b>Μόνο με αριθμό κυκλοφορίας:</b> ο ιδιοκτήτης δηλώνει τον οδηγό με υπεύθυνη δήλωση <b>σε 5 ημέρες</b>· αλλιώς οι βαθμοί πάνε στον ίδιο.',
+   '<b>Αντιρρήσεις:</b> στον διοικητή, <b>σε 3 ημέρες</b> από τη βεβαίωση.','<span class="sp-ref">άρθρο 4</span>'])}
+  ${spBox('📮','Όταν φτάσει τους 25',['Του αποστέλλεται έγγραφο αφαίρεσης· παραδίδει την άδεια στο Α.Τ. <b>σε 5 ημέρες</b>.',
+   '<b>Επαναχορήγηση:</b> μετά από <b>6 μήνες</b>, με μαθήματα και εξέταση (θεωρία + πρακτική).',
+   'Αν ξαναφτάσει 25 μέσα σε 5 έτη: <b>1 έτος</b> · κάθε επόμενη φορά: <b>2 έτη</b>.','<span class="sp-ref">άρθρα 7, 8</span>'])}
+  ${spBox('🗑️','Διαγραφή βαθμών',['<b>3 έτη</b> μετά τη βεβαίωση — <b>2 έτη</b> για οδηγούς οχημάτων δημόσιας χρήσης.','<span class="sp-ref">άρθρο 3 παρ. 4</span>'])}
+  </div>`;
+}
+
+// ═══ ΤΑΧΟΓΡΑΦΟΣ — δομημένη προβολή (κάρτα 601) · ΚΥΑ Φ450/89969/2023 ═══
+function tachoInfoHTML(){
+  const tg=(a,c)=>`<div class="sp-tags ${c||''}">${a.map(x=>`<span>${x}</span>`).join('')}</div>`;
+  return `<div class="fx-box">
+  ${spBox('👥','Ποιος πληρώνει',[tg(['<b>Ι</b> = ιδιοκτήτης ή μισθωτής','<b>Ο</b> = οδηγός'],'sp-blue'),
+   '<b>Ιδιοκτήτης που οδηγεί ο ίδιος</b> → μόνο το πρόστιμο του ιδιοκτήτη.',
+   '<b>Συνδυασμός οχημάτων με διαφορετικούς ιδιοκτήτες</b> → το πρόστιμο ιδιοκτήτη πάει σε αυτόν του <b>μηχανοκίνητου</b>.',
+   'Ο ιδιοκτήτης ευθύνεται <b>εις ολόκληρον</b> με τον οδηγό για τα πρόστιμα του οδηγού.','<span class="sp-ref">άρθρα 3, 4, 6</span>'])}
+  ${spBox('➕','Πολλές παραβάσεις μαζί (συρροή)',['Βεβαιώνονται όλες χωριστά, αλλά πληρώνεται:',
+   '<div class="sp-f">το <b>μεγαλύτερο</b> πρόστιμο + <b>10%</b> του αθροίσματος των υπολοίπων</div>',
+   '<span class="sp-ex">π.χ. 400 € + 200 € + 100 € → 400 + 10% × 300 = <b>430 €</b></span>',
+   '<b>Άρνηση συνεργασίας</b> στον έλεγχο → <b>Β24</b> επιπλέον των υπολοίπων.',
+   'Τα πρόστιμα επιβάλλονται ανεξάρτητα από τυχόν ποινική δίωξη.','<span class="sp-ref">άρθρα 5, 7</span>'])}
+  ${spBox('🛑','Ακινητοποίηση οχήματος',[tg(['Α1–Α42','Α45–Α51','Β1','Β2','Β7','Β9']),
+   'Για τις παραβάσεις <b>Α</b>: η ακινητοποίηση αίρεται και αν το όχημα το αναλάβει <b>άλλος οδηγός</b>.',
+   '<span class="sp-ref">άρθρο 8 παρ. 1-2 · άρθρο 50 Ν.5209/2025</span>'])}
+  ${spBox('🪪','Αφαίρεση κάρτας οδηγού',[tg(['Β3 (όλες οι κάρτες)','Β4','Β5','Β6']),
+   'Η κάρτα στέλνεται στην <b>αρχή έκδοσης</b>. Αν η αφαίρεση κρατήσει πάνω από 2 εβδομάδες, ενημερώνεται η αρχή μέσα σε 2 εβδομάδες.',
+   '<b>Υποψία συσκευής ή λογισμικού παραποίησης</b> → μέτρα του άρθρου 4Γ Ν.3446/2006.','<span class="sp-ref">άρθρο 8 παρ. 3-4</span>'])}
+  ${spBox('📡','Μετά τον έλεγχο',['<b>Σοβαρές παραβάσεις (ΙΣΠ/ΠΣΠ/ΣΠ):</b> ενημέρωση του κράτους εγκατάστασης της επιχείρησης μέσω ERRU ή της Υπηρεσίας Μεταφορών της Περιφέρειας.',
+   '<b>TACHOnet:</b> έλεγχος ότι η κάρτα είναι έγκυρη και μοναδική.',
+   '<b>Παλιές παραβάσεις:</b> εφαρμόζεται η ΚΥΑ αν είναι ευνοϊκότερη και δεν έχουν ήδη επιβληθεί κυρώσεις.','<span class="sp-ref">άρθρα 8 παρ. 5-6, 9, 11</span>'])}
+  </div>`;
+}
+
+// ═══ Δομημένη προβολή καρτών πληροφοριών φορτηγών/ταχογράφου/ADR (380, 465, 466, 467, 516) ═══
+const ivTg=(a,c)=>`<div class="sp-tags ${c||''}">${a.map(x=>`<span>${x}</span>`).join('')}</div>`;
+const ivRef=t=>`<span class="sp-ref">${t}</span>`;
+const ivGo=(id,t)=>`<button class="fx-go" onclick="openDetail(${id})">→ ${t}</button>`;
+const ivTiles=a=>`<div class="iv-tiles">${a.map(([n,l,s])=>`<div class="iv-tile"><b>${n}</b><span>${l}</span>${s?`<em>${s}</em>`:''}</div>`).join('')}</div>`;
+const ivRows=a=>`<div class="iv-rows">${a.map(([k,v])=>`<div class="iv-r"><span>${k}</span><span>${v}</span></div>`).join('')}</div>`;
+const INFO_VIEW={
+380:()=>`<div class="fx-box">
+ ${spBox('👥','Ποιος πληρώνει',[
+  '<b>Οδηγός που είναι και ιδιοκτήτης</b> → μόνο το πρόστιμο <b>ως ιδιοκτήτης</b>.',
+  '<b>Ιδιοκτήτης που είναι και υπεύθυνος φόρτωσης</b> → <b>και τα δύο</b> πρόστιμα.',
+  '<b>Συνδυασμός οχημάτων με διαφορετικούς ιδιοκτήτες</b> → στον ιδιοκτήτη του <b>μηχανοκίνητου</b>.',
+  'Ο ιδιοκτήτης ευθύνεται <b>εξίσου</b> με τον οδηγό για τα πρόστιμα του οδηγού.',
+  'Αν ο υπεύθυνος φόρτωσης είναι <b>αλλοδαπή επιχείρηση</b>, ο ιδιοκτήτης ευθύνεται και για το δικό του πρόστιμο.',ivRef('άρθρα 4 παρ. 2-3, 5')])}
+ ${spBox('➕','Πολλές παραβάσεις μαζί (συρροή)',[
+  '<div class="sp-f">Όλα τα πρόστιμα πληρώνονται <b>στο ακέραιο</b> (άθροισμα)</div>',
+  '<b>Εξαιρέσεις</b> — μετράει μόνο ένα:',
+  ivRows([['Η1 + Η29','μόνο <b>Η1</b>'],['Η2 – Η4 + Η29','μόνο <b>Η29</b>'],['Η18 + Η30','μόνο <b>Η18</b>'],['Η19 + Η30','μόνο <b>Η19</b>'],['Η20 ή Η21 + Η30','μόνο <b>Η30</b>']]),
+  'Παραβάσεις του Ν.3446/2006 <b>εκτός πίνακα</b> → βεβαιώνονται σε <b>άλλη πράξη</b>.',ivRef('άρθρο 4 παρ. 4')])}
+ ${spBox('📋','Στοιχεία κυκλοφορίας',['Αφαιρούνται για να εξασφαλιστεί η πληρωμή του προστίμου.',ivRef('άρθρο 1 παρ. 7 Ν.3446/2006')])}
+ ${spBox('☢️','ADR — άλλοι κανόνες',['Για επικίνδυνα εμπορεύματα η συρροή είναι διαφορετική: <b>σοβαρότερη + 50%</b> των λοιπών, αν πληρωθεί επιτόπου.',ivGo(516,'Κανόνες ADR')])}
+</div>`,
+465:()=>`<div class="fx-box">
+ ${spBox('👮','Ποιος ελέγχει & τι',[ivTg(['<b>Αστυνομικές αρχές</b>','Λιμενικές & Τελωνειακές αρχές','ΣΔΟΕ','Γ.Γ. Δημοσίων Εσόδων','Μικτά Κλιμάκια Ελέγχου (ΜΚΕ)','ΜΚΕ Δήμων Παραμεθορίων'],'sp-blue'),
+  'Ελληνικά και αλλοδαπά <b>φορτηγά και λεωφορεία</b> (ιδιωτικής και δημόσιας χρήσης) και οι μεταφορές τους.',
+  'Διαπίστωση και επιβολή <b>επί τόπου</b>, με <b>ακρόαση</b> του οδηγού και σύνταξη έκθεσης.',
+  '<b>ΜΚΕ:</b> 2 της Υπηρεσίας Μεταφορών ή ΚΤΕΟ (ο ένας τεχνικός) + 1 της Τροχαίας ή του Λιμενικού.',ivRef('άρθρα 1, 2')])}
+ ${spBox('💶','Κλίμακες προστίμων',[
+  `<div class="iv-tbl"><table><tr><th>Ιδιοκτ.</th><th>Οδηγός</th><th>Φόρτωση</th><th>Λοιποί</th></tr><tr class="iv-sev"><td colspan="4">Ιδιάζουσα σοβαρή</td></tr><tr><td>1.000–3.000</td><td>500–1.000</td><td>1.000–3.000</td><td>500–1.000</td></tr><tr class="iv-sev"><td colspan="4">Πολύ σοβαρή</td></tr><tr><td>550–950</td><td>260–450</td><td>550–950</td><td>260–450</td></tr><tr class="iv-sev"><td colspan="4">Σοβαρή</td></tr><tr><td>300–500</td><td>100–250</td><td>300–500</td><td>100–250</td></tr><tr class="iv-sev"><td colspan="4">Ελαφρά</td></tr><tr><td>50–250</td><td>20–80</td><td>—</td><td>—</td></tr></table></div>`,
+  '<b>Κριτήρια σοβαρότητας:</b> κίνδυνος για ζωή/σωματική ακεραιότητα · ζημία σε περιβάλλον ή οδικό δίκτυο · παρεμπόδιση του ελέγχου · διατάραξη της αγοράς μεταφορών.',
+  'Ποσά σε €. <b>Λοιποί</b> = λοιποί συμμετέχοντες σε μεταφορά ADR.','Το <b>ακριβές</b> πρόστιμο κάθε παράβασης ορίζεται με ΚΥΑ (Γ5/353651-2021, Γ6/122515/2026 ADR, Φ450/89969/2023 ταχογράφος).',ivRef('άρθρα 4, 4Α, 4Β')])}
+ ${spBox('👥','Ποιος πληρώνει',['<b>Ιδιοκτήτης που οδηγεί</b> → μόνο το πρόστιμο του ιδιοκτήτη.','<b>Μισθωμένο όχημα</b> → το πρόστιμο ιδιοκτήτη στον <b>μισθωτή</b>.',
+  'Ο ιδιοκτήτης ευθύνεται για τις παραβάσεις του οδηγού του· σε μίσθωση <b>χωρίς οδηγό</b> ευθύνεται ο μισθωτής.',ivRef('άρθρο 4Α παρ. 2-3')])}
+ ${spBox('📋','Αφαίρεση στοιχείων κυκλοφορίας',[
+  `<div class="iv-steps"><div><b>1</b>Με την επιβολή προστίμου αφαιρούνται <b>επί τόπου</b> (ισχύει και για την Αστυνομία).</div>
+   <div><b>2</b>Η καταλογιστική πράξη ισχύει ως άδεια κυκλοφορίας για <b>7 ημέρες</b>.</div>
+   <div><b>3</b><b>Απαγορεύεται η έξοδος από τη χώρα</b> μέχρι την εξόφληση.</div>
+   <div><b>4</b>Τα στοιχεία επιστρέφονται <b>αφού πληρωθεί</b> το πρόστιμο.</div></div>`,
+  '<b>Αλλοδαπό όχημα</b> που δεν πλήρωσε αυθημερόν → η πράξη στέλνεται σε όλα τα Τελωνεία και τις αρχές εισόδου/εξόδου· έξοδος μόνο με αποδεικτικό πληρωμής.',
+  'Η <b>προσφυγή</b> στο δικαστήριο <b>δεν αναστέλλει</b> την εκτέλεση.','<b>Ακινητοποίηση:</b> κατά το άρθρο 50 ΚΟΚ.',ivRef('άρθρο 1 παρ. 6-7')])}
+ ${spBox('📦','Φόρτωση',['Ασφαλής πρόσδεση (ιμάντες, σχοινιά, αλυσίδες) · <b>κάλυμμα</b> σε ανοιχτό αμάξωμα όταν το φορτίο μπορεί να διαφύγει · εμπορευματοκιβώτιο <b>στερεωμένο με twist locks</b> · βάρη εντός ορίων.',
+  '<b>Πλατφόρμα</b> μπορεί να μεταφέρει έως <b>2 άφορτα</b> ρυμουλκούμενα-πλατφόρμες, σε ακτίνα <b>20 χλμ</b> από τον Πειραιά / <b>10 χλμ</b> από τα λοιπά λιμάνια (μόνο της ίδιας επιχείρησης).',ivRef('άρθρο 3')])}
+ ${spBox('📄','Μίσθωση ΦΔΧ σε οδηγό',['Επιτρέπεται μόνο αν:',ivTg(['κυκλοφορεί στην Ελλάδα','χωρίς οδηγό','αποκλειστικά στον μισθωτή-οδηγό','μόνο μεταφορές της άδειας κυκλοφορίας','διάρκεια <b>3 μήνες – 3 έτη</b>'],'sp-blue'),
+  'Συμφωνητικό κατατίθεται <b>σε 5 εργάσιμες</b> στη ΔΟΥ και στη Διεύθυνση Μεταφορών · τις φορτωτικές τις εκδίδει ο <b>μισθωτής</b>.',ivRef('άρθρο 7')])}
+ ${spBox('🪪','Άλλα σημεία ελέγχου',['<b>Συνταξιούχοι οδηγοί</b> C, D, CE, DE: εθνικός κωδικός στην άδεια που <b>απαγορεύει</b> την επαγγελματική οδήγηση — ελέγξτε το πίσω μέρος.',
+  '<b>Κινητές μονάδες τεχνικού ελέγχου</b> μπορούν να κάνουν έκτακτο τεχνικό έλεγχο στον δρόμο.',ivRef('άρθρα 18 παρ. 5, 21 παρ. 1')])}
+</div>`,
+466:()=>`<div class="fx-box">
+ ${spBox('🚛','Ποιους αφορά',[ivTg(['Εμπορεύματα: <b>άνω των 3,5 τ.</b>','Επιβάτες: <b>άνω των 9 θέσεων</b>'],'sp-blue'),
+  '<b>Εξαιρούνται</b> μεταξύ άλλων: τακτικές γραμμές έως 50 χλμ · οχήματα έως 40 χλμ/ώρα · Ένοπλες Δυνάμεις, Σώματα Ασφαλείας, Πυροσβεστική, Πολιτική Προστασία · έκτακτη ανάγκη, ιατρικά · οδική βοήθεια έως 100 χλμ · μη εμπορική μεταφορά έως 7,5 τ.',ivRef('άρθρα 2, 3')])}
+ ${spBox('🚗','Χρόνος οδήγησης',[ivTiles([['9 ώρες','ανά ημέρα','10 ώρες έως 2 φορές/εβδομάδα'],['56 ώρες','ανά εβδομάδα',''],['90 ώρες','σε 2 συνεχόμενες εβδομάδες','']]),ivRef('άρθρο 6')])}
+ ${spBox('☕','Διάλειμμα',[ivTiles([['4,5 ώρες','οδήγησης',''],['45΄','διάλειμμα','ή 15΄ + 30΄']]),ivRef('άρθρο 7')])}
+ ${spBox('🛏️','Ανάπαυση',['<b>Ημερήσια</b> — μέσα σε 24 ώρες (30 με 2 οδηγούς):',ivTiles([['11 ώρες','κανονική','ή 3 + 9 ώρες'],['9 ώρες','μειωμένη','έως 3 φορές μεταξύ εβδομαδιαίων']]),
+  '<b>Εβδομαδιαία</b> — το αργότερο μετά από 6 εικοσιτετράωρα:',ivTiles([['45 ώρες','κανονική',''],['24 ώρες','μειωμένη','αντιστάθμιση έως την 3η εβδομάδα']]),
+  'Σε κάθε 2 εβδομάδες: τουλάχιστον <b>2 κανονικές</b> ή <b>1 κανονική + 1 μειωμένη</b>.',
+  '<b>Πορθμείο/τρένο:</b> η ημερήσια ανάπαυση διακόπτεται έως 2 φορές, συνολικά ≤ 1 ώρα, αν υπάρχει κουκέτα.',ivRef('άρθρα 4, 8, 9')])}
+ ${spBox('👮','Στον έλεγχο',['<b>Επιδεικνύει:</b> κάρτα οδηγού, φύλλα, χειρόγραφες καταγραφές και εκτυπώσεις της <b>σημερινής + 56 προηγούμενων ημερών</b>.',
+  '<b>Παρέκκλιση</b> για να φτάσει σε ασφαλή στάθμευση ή για ασφάλεια προσώπων/φορτίου: μόνο αν σημείωσε <b>χειρόγραφα</b> τον λόγο.',
+  '<b>Μέτρα:</b> ακινητοποίηση μέχρι να αρθεί η αιτία · επιβολή ημερήσιας ανάπαυσης.',
+  'Η <b>επιχείρηση</b> ευθύνεται για τις παραβάσεις των οδηγών της.',
+  '<b>Πρόστιμα:</b> πίνακας Α1–Α54 της ΚΥΑ Φ450/89969/2023.',ivGo(601,'Κανόνες προστίμων ταχογράφου'),ivRef('άρθρα 10, 12, 19, 21')])}
+</div>`,
+467:()=>`<div class="fx-box">
+ ${spBox('🚛','Ποιους αφορά',['Ταχογράφος <b>υποχρεωτικός</b> όπου εφαρμόζεται ο Καν. 561/2006.',
+  '<b>Εξαίρεση:</b> έως 7,5 τ. με υλικά/εξοπλισμό για τη δουλειά του οδηγού, σε ακτίνα 100 χλμ, αν η οδήγηση δεν είναι η κύρια απασχόλησή του.',ivRef('άρθρο 3')])}
+ ${spBox('🪪','Κάρτα οδηγού',[ivTg(['Προσωπική','<b>Μία</b> ανά οδηγό','Ισχύς <b>5 έτη</b>'],'sp-blue'),
+  '<b>Απαγορεύεται:</b> ξένη, ελαττωματική ή ληγμένη κάρτα.',
+  '<b>Ανανέωση:</b> αίτηση 15 εργάσιμες πριν τη λήξη.',
+  '<b>Κλοπή/απώλεια/φθορά:</b> αίτηση σε <b>7 ημέρες</b> · μπορεί να οδηγεί χωρίς κάρτα έως <b>15 ημέρες</b>, με εκτυπώσεις.',ivRef('άρθρα 26-29')])}
+ ${spBox('▶️','Σωστή χρήση',['Κάρτα ή φύλλο <b>κάθε ημέρα</b> οδήγησης, από την παραλαβή του οχήματος μέχρι το τέλος της εργασίας.',
+  '<b>Χωρίς κάρτα:</b> εκτύπωση στην <b>αρχή</b> (όνομα, αριθμός κάρτας, υπογραφή) και στο <b>τέλος</b> της διαδρομής.',
+  'Χειρόγραφη καταχώριση όταν είναι μακριά από το όχημα · σωστή σχισμή με 2 οδηγούς · σύμβολο <b>χώρας</b> έναρξης/λήξης.',
+  '<b>Αναλογικός:</b> στο φύλλο όνομα, ημερομηνία/τόπος, αριθμός κυκλοφορίας, χιλιόμετρα.',ivRef('άρθρα 34, 35')])}
+ ${spBox('👮','Στον έλεγχο',['<b>Επιδεικνύει:</b> κάρτα, φύλλα, χειρόγραφα και εκτυπώσεις της <b>σημερινής + 56 προηγούμενων ημερών</b>.',
+  '<b>Υποψία απάτης</b> → οδηγείται σε εγκεκριμένο συνεργείο · αφαιρούνται συσκευή παραποίησης, μονάδα και κάρτα ως αποδεικτικά.',
+  '<b>Πρόστιμα:</b> πίνακας Β1–Β30 της ΚΥΑ Φ450/89969/2023.',ivGo(601,'Κανόνες προστίμων ταχογράφου'),ivRef('άρθρα 36, 38, 41')])}
+ ${spBox('🚫','Απαγορεύσεις',[ivTg(['Παραποίηση / διαγραφή δεδομένων','Συσκευή παραποίησης στο όχημα','Πάνω από <b>1</b> ταχογράφος']),ivRef('άρθρο 32')])}
+ ${spBox('🔧','Βλάβη, σφραγίδες, επιθεώρηση',['<b>Βλάβη:</b> επισκευή το συντομότερο (καθ’ οδόν αν δεν επιστρέφει στη βάση σε 1 εβδομάδα) · στο μεταξύ <b>χειρόγραφες</b> καταγραφές με υπογραφή.',
+  '<b>Σφραγίδες:</b> μόνο από συνεργείο ή για επισκευή — τότε <b>γραπτή δήλωση</b> στο όχημα και επανασφράγιση σε <b>7 ημέρες</b>.',
+  '<b>Επιθεώρηση:</b> τουλάχιστον <b>ανά 2 έτη</b>.',ivRef('άρθρα 22, 23, 37')])}
+ ${spBox('🏢','Επιχείρηση',['Εκπαιδεύει και ελέγχει τους οδηγούς · φυλάει δεδομένα <b>≥ 1 έτος</b> · ευθύνεται για τις παραβάσεις των οδηγών της.',ivRef('άρθρο 33')])}
+</div>`,
+516:()=>`<div class="fx-box">
+ ${spBox('👥','Ποιος πληρώνει',[ivTg(['<b>Ι</b> = ιδιοκτήτης / μισθωτής','<b>Ο</b> = οδηγός','<b>Α</b> = αποστολέας'],'sp-blue'),
+  '<b>Ιδιοκτήτης που οδηγεί</b> → μόνο το πρόστιμο του ιδιοκτήτη.',
+  '<b>Μισθωμένο όχημα</b> → το πρόστιμο ιδιοκτήτη στον μισθωτή· χωρίς οδηγό, ευθύνεται και για τα πρόστιμα του οδηγού.',
+  'Ο ιδιοκτήτης ευθύνεται <b>εις ολόκληρον</b> με τον οδηγό.',ivRef('άρθρο 10')])}
+ ${spBox('➕','Πολλές παραβάσεις μαζί (συρροή)',['Βεβαιώνονται όλες · ένα συνολικό πρόστιμο <b>ανά υπόχρεο</b>. Αν πληρωθεί <b>επιτόπου</b>:',
+  '<div class="sp-f">η <b>σοβαρότερη</b> + <b>50%</b> του αθροίσματος των υπολοίπων</div>',
+  '<span class="sp-ex">π.χ. 1.000 € + 500 € + 300 € → 1.000 + 50% × 800 = <b>1.400 €</b></span>',ivRef('άρθρο 11')])}
+ ${spBox('🛑','Μέτρα',['<b>Ακινητοποίηση</b> όπου το ορίζει η παράβαση, μέχρι να γίνει ασφαλής η κυκλοφορία· επιτήρηση κατά κεφ. 8.4 ADR.',
+  '<b>Δ3 — χωρίς ΣΑΜΕΕ</b> (ελληνική επιχείρηση): αφαίρεση στοιχείων κυκλοφορίας μέχρι εξόφληση <b>και</b> απόδειξη ανάθεσης ΣΑΜΕΕ.',
+  'Τα <b>στοιχεία κυκλοφορίας</b> αφαιρούνται για εξασφάλιση της πληρωμής.',ivRef('άρθρο 12 · άρθρο 1 παρ. 7 Ν.3446/2006')])}
+ ${spBox('📋','Διαδικασία ελέγχου',['Συμπληρώνεται ο <b>κατάλογος ελέγχου</b> (Παράρτημα Ι) — αντίτυπο ή βεβαίωση στον οδηγό.',
+  'Δυνατότητα <b>δειγματοληψίας</b> για το Γενικό Χημείο του Κράτους.',
+  'Παραβάσεις μεταφορικών επιχειρήσεων → ενημέρωση Υπηρεσίας Μεταφορών Περιφέρειας ή ERRU (κωδικός ΕΜΜΕ).',ivRef('άρθρα 4, 12 παρ. 3')])}
+ ${spBox('🗂️','Ομάδες παραβάσεων',[ivTg(['<b>Α1–Α9</b> Έγγραφα','<b>Β1–Β25</b> Μεταφορά','<b>Γ1–Γ2</b> Εξοπλισμός','<b>Δ1–Δ12</b> Άλλο'],'sp-blue'),ivRef('Παράρτημα IV')])}
+</div>`
+};
+
+// ═══════════════════════════════════════════════════
+// ΕΙΔΙΚΗ ΝΟΜΟΘΕΣΙΑ σε δύο ενότητες + ΠΙΝΑΚΙΔΕΣ (Παράρτημα Α' Ν.5209/2025)
+// ═══════════════════════════════════════════════════
+let INFO_G='tr';
+const isTrInfo=v=>isTruckV(v)||/ADR|Ταχογράφ|ΤΑΧΟΓΡΑΦ|561\/2006|165\/2014|3446/.test(v.title+v.article);
+const INFO_META={tr:{ic:'🚛',n:'Φορτηγά — ειδική νομοθεσία',ph:'Αναζήτηση: ταχογράφος, ADR, κλιμάκια, ώρες οδήγησης…'},
+                 kok:{ic:'🪪',n:'Άδειες & λοιπά',ph:'Αναζήτηση: ξένη άδεια, κατηγορία C, ΣΕΣΟ, ΟΑΣΑ…'}};
+const _setTabOrig=setTab;
+setTab=function(t,noPush){
+  if(t==='infoT'||t==='infoK'){ const g=t==='infoT'?'tr':'kok'; if(g!==INFO_G) window._sec=null; INFO_G=g; t='info'; }
+  _setTabOrig(t,noPush);
+  const si=document.getElementById('si');
+  if(TAB==='info'&&si) si.placeholder=INFO_META[INFO_G].ph;
+  if(TAB==='signs'){ document.body.classList.remove('no-search'); if(si) si.placeholder='Αναζήτηση πινακίδας: Ρ-40, στάθμευση, ποδήλατο…'; }
+};
+renderInfo=function(el){
+  const M=INFO_META[INFO_G];
+  const items=V.filter(v=>isInfo(v)&&(INFO_G==='tr')===isTrInfo(v)&&match(v,Q)&&(Q||!MOVED_CARDS.has(v.id)));
+  document.getElementById('vcnt').textContent=items.length;
+  if(!items.length){ el.innerHTML='<div class="empty"><div class="ei">🔍</div><div class="et">Δεν βρέθηκαν αποτελέσματα</div><div>Δοκιμάστε διαφορετικό όρο αναζήτησης</div></div>'; return; }
+  const arr=Q?items.map(v=>[v,scoreV(v,Q)]).sort((a,b)=>b[1]-a[1]).map(x=>x[0]):items.sort((a,b)=>a.title.localeCompare(b.title,'el'));
+  el.innerHTML=`<div class="rank-h">${M.ic} ${M.n}${Q?' — αποτελέσματα':''} (${arr.length})</div><div class="grp">${arr.map(cardHTML).join('')}</div>`;
+};
+// ── Πινακίδες ──
+const SG_L=[['','Όλες'],['Κ','⚠️ Κινδύνου'],['Ρ','⛔ Ρυθμιστικές'],['Π','ℹ️ Πληροφοριακές'],['Πρ','➕ Πρόσθετες']];
+let SG='', SG_LOADING=false;
+function sgLoad(cb){
+  if(window.SIGNS) return cb();
+  if(SG_LOADING) return; SG_LOADING=true;
+  const s=document.createElement('script'); s.src='pinakides.js';
+  s.onload=()=>{SG_LOADING=false;cb();};
+  s.onerror=()=>{SG_LOADING=false; const el=document.getElementById('main'); if(TAB==='signs'&&el) el.innerHTML='<div class="empty"><div class="ei">⚠️</div><div class="et">Δεν φορτώθηκαν οι πινακίδες</div><div>Ανοίξτε την εφαρμογή μία φορά με σύνδεση στο internet.</div></div>';};
+  document.head.appendChild(s);
+}
+const sgKey=s=>nz(s).replace(/[\s\-–]/g,'');
+function sgMatch(o,q){
+  if(!q) return true; const AL={stop:'ρ2',στοπ:'ρ2'}; const k=AL[sgKey(q)]||sgKey(q);
+  if(sgKey(o.c).split('/').some(x=>x.startsWith(k))||sgKey(o.c).startsWith(k)) return true;
+  const t=nz(o.t+' '+(o.f||'')); return qTokens(q).every(w=>t.includes(tokStem(w)));
+}
+function sgSet(g){ SG=g; render(); }
+function renderSigns(el){
+  if(!window.SIGNS){ el.innerHTML='<div class="empty"><div class="ei">⏳</div><div class="et">Φόρτωση πινακίδων…</div></div>'; sgLoad(()=>{ if(TAB==='signs') render(); }); return; }
+  const all=SIGNS.map((o,i)=>[o,i]).filter(([o])=>sgMatch(o,Q));
+  const list=all.filter(([o])=>!SG||o.g===SG);
+  document.getElementById('vcnt').textContent=list.length;
+  let h=`<div class="rank-h">🚸 Πινακίδες σήμανσης — Παράρτημα Α΄ Ν.5209/2025</div><div class="fbar sg-bar">${SG_L.map(([k,l])=>`<button class="fchip${SG===k?' on':''}" onclick="sgSet('${k}')">${l} <i>${k?all.filter(([o])=>o.g===k).length:all.length}</i></button>`).join('')}</div>`;
+  if(!list.length) h+='<div class="empty"><div class="ei">🔍</div><div class="et">Δεν βρέθηκε πινακίδα</div><div>Δοκιμάστε κωδικό (π.χ. Ρ-40) ή λέξη (π.χ. στάθμευση)</div></div>';
+  else h+=`<div class="sg-grid">${list.map(([o,i])=>`<button class="sg-t" onclick="openSign(${i})"><span class="sg-im"><img src="data:image/webp;base64,${o.i}" alt="${o.c}" loading="lazy"></span><b>${o.c}</b><span class="sg-d">${o.t}</span></button>`).join('')}</div>`;
+  el.innerHTML=h;
+}
+function sgRel(code){
+  const cs=code.split(' / ');
+  const rx=new RegExp('(^|[^0-9Α-Ωα-ωA-Za-z])('+cs.map(c=>c.replace('-','\\s?[-–]\\s?')).join('|')+')(?![0-9α-ω])');
+  const m0=cs[0].match(/^(Πρ|[ΚΡΠ])-(\d+)/); const L0=m0&&m0[1], N0=m0&&+m0[2];
+  const inRange=t=>{ if(!m0) return false; const rr=/(Πρ|[ΚΡΠ])\s?[-–]\s?(\d+)[α-ω]?\s*(?:έως|μέχρι|ως)\s*(?:(?:Πρ|[ΚΡΠ])\s?[-–]\s?)?(\d+)/g; let m; while((m=rr.exec(t))){ if(m[1]===L0&&N0>=+m[2]&&N0<=+m[3]) return true; } return false; };
+  return V.filter(v=>{ if(isInfo(v)) return false; const t=[v.title,v.desc,(v.measures||[]).join(' '),(v.tags||[]).join(' ')].join(' '); return rx.test(t)||inRange(t); }).slice(0,15);
+}
+function openSign(i){
+  const o=SIGNS[i]; const rel=sgRel(o.c);
+  const gn={'Κ':'Πινακίδα αναγγελίας κινδύνου','Ρ':'Ρυθμιστική πινακίδα','Π':'Πληροφοριακή πινακίδα','Πρ':'Πρόσθετη πινακίδα'}[o.g];
+  document.getElementById('sc').innerHTML=`<div class="sg-det"><div class="sg-big"><img src="data:image/webp;base64,${o.i}" alt="${o.c}"></div>
+   <div class="sg-code">${o.c}</div><div class="sg-grp">${gn} · Παράρτημα Α΄ Ν.5209/2025</div>
+   <div class="sg-title">${o.t}</div>${o.f?`<div class="sg-full">${o.f.startsWith(o.t)?o.f.slice(o.t.length).replace(/^[.\s]+/,''):o.f}</div>`:''}
+   ${rel.length?`<div class="sec">Σχετικές παραβάσεις</div><div class="grp">${rel.map(cardHTML).join('')}</div>`:''}
+   <div class="sg-nav">${i>0?`<button class="fchip" onclick="openSign(${i-1})">‹ ${SIGNS[i-1].c}</button>`:'<span></span>'}${i<SIGNS.length-1?`<button class="fchip" onclick="openSign(${i+1})">${SIGNS[i+1].c} ›</button>`:''}</div></div>`;
+  openSheet(); const sc=document.getElementById('sc'); if(sc) sc.scrollTop=0;
+}
 
 function render(){
   const el=document.getElementById('main');
@@ -1905,6 +2471,7 @@ function render(){
   if(TAB==='home'){renderHome(el);return;}
   if(TAB==='wiz'){renderWiz(el);return;}
   if(TAB==='info'){renderInfo(el);return;}
+  if(TAB==='signs'){renderSigns(el);return;}
   if(TAB==='cats'){renderCats(el);return;}
   if(TAB==='az'){renderAlpha(el);return;}
   if(TAB==='art'){renderByArticle(el);return;}
@@ -2089,7 +2656,7 @@ function setTab(t,noPush){
   document.body.classList.toggle('in-list',list);
   const sec=list?'list':t; if(window._sec!==sec){ window._sec=sec; Q=''; const si=document.getElementById('si'); if(si) si.value=''; const cb=document.getElementById('cb'); if(cb) cb.classList.remove('on'); }
   document.body.classList.toggle('no-search',!(list||t==='info'));
-  { const si=document.getElementById('si'); if(si) si.placeholder= t==='info'?'Αναζήτηση στις Οδηγίες: άδεια, ΣΕΣΟ, ADR…':'Αναζήτηση: κράνος μηχανή, Η29, ADR Β4, κόφτης…'; }
+  { const si=document.getElementById('si'); if(si) si.placeholder= t==='info'?'Αναζήτηση στην Ειδική νομοθεσία: άδεια, ΣΕΣΟ, ADR…':'Αναζήτηση: κράνος μηχανή, Η29, ADR Β4, κόφτης…'; }
   render(); window.scrollTo(0,0);
 }
 function cycleFz(){ const cur=document.body.classList.contains('fz3')?3:document.body.classList.contains('fz2')?2:1; setFz(cur%3+1); }
@@ -2122,7 +2689,7 @@ function init(){
     document.body.classList.toggle('at-home',TAB==='home');
     document.body.classList.toggle('in-list',['all','az','art'].includes(TAB));
     document.body.classList.toggle('no-search',!['all','az','art','info'].includes(TAB)); window._sec=['all','az','art'].includes(TAB)?'list':TAB;
-    { const c=document.getElementById('cr-cnt'); if(c) c.textContent=V.length; }
+    { const c=document.getElementById('cr-cnt'); if(c) c.textContent=V.filter(v=>!isInfo(v)).length; }
     render();
   } catch(e) {
     const el = document.getElementById('main');
@@ -2330,33 +2897,45 @@ function toggleArt(id){
   const open=el.style.display!=='none';
   el.style.display=open?'none':'block';
   if(arr)arr.textContent=open?'▶':'▼';
+  // το κείμενο του νόμου φορτώνεται μόνο όταν ανοίγει το άρθρο (ελαφριά σελίδα)
+  const lb=el.querySelector('.art-law-slot');
+  if(!open&&lb&&!lb.dataset.done){ const n=+lb.dataset.n, at=ARTICLE_TEXT[n]; if(at) lb.innerHTML=`<div class="art-law-box"><div class="art-law-title">📖 ${at.title}</div><div class="art-law-text">${at.text.replace(/\n/g,'<br>')}</div></div>`; lb.dataset.done='1'; }
+}
+// Κλειδί ομαδοποίησης «Κατ' άρθρο»: ΚΟΚ → αριθμός άρθρου · φορτηγά → πίνακας/ομάδα κωδικών
+function artGroupKey(v){
+  if(isTruckV(v)){
+    const g=grpKey(v);
+    if(/^(☢|⏱|🚛)/.test(g)) return g;
+    return '📄 Ν.3446/2006 — λοιπές διατάξεις';
+  }
+  const a=v.article||'';
+  if(/^Άρθρο \d+/.test(a) && !/Ν\.(2170|4784)/.test(a)) return 'Άρθρο '+artNum(a);
+  return '📄 Λοιπές διατάξεις (εκτός ΚΟΚ)';
 }
 function renderByArticle(el){
   const items=V.filter(v=>tabMatch(v)&&match(v,Q));
   document.getElementById('vcnt').textContent=items.length;
-  if(!items.length){el.innerHTML='<div class="empty"><div class="ei">🔍</div><div class="et">Δεν βρέθηκαν αποτελέσματα</div></div>';return;}
+  const allArts=VEH==='kok'&&!Q&&!MS;   // πλήρης κατάλογος: και τα 132 άρθρα του Ν.5209/2025
+  if(!items.length&&!allArts){el.innerHTML='<div class="empty"><div class="ei">🔍</div><div class="et">Δεν βρέθηκαν αποτελέσματα</div></div>';return;}
   const groups={};
-  items.forEach(v=>{const k=v.article||'—';(groups[k]=groups[k]||[]).push(v);});
-  const artKeys=Object.keys(groups).sort((a,b)=>{
-    const ia=a.includes('Ν.3446')||a.includes('Ν.4663')||a.includes('Ν.5322');
-    const ib=b.includes('Ν.3446')||b.includes('Ν.4663')||b.includes('Ν.5322');
-    if(ia&&!ib)return 1; if(!ia&&ib)return-1;
-    return artNum(a)-artNum(b);
-  });
+  if(allArts) for(let n=1;n<=132;n++) groups['Άρθρο '+n]=[];
+  items.forEach(v=>{const k=artGroupKey(v);(groups[k]=groups[k]||[]).push(v);});
+  const ord=k=>{ if(/^Άρθρο \d+$/.test(k)) return artNum(k); if(/^🚛/.test(k)) return 1000+['Α','Β','Γ','Δ','Ε','ΣΤ','Ζ','Η'].indexOf(k.split('Ομάδα ')[1]); if(/^☢/.test(k)) return 2000+k.charCodeAt(k.indexOf('Ομάδα ')+6); if(/^⏱/.test(k)) return /Πίνακας Α/.test(k)?3000:3001; return 9000; };
+  const artKeys=Object.keys(groups).sort((a,b)=>ord(a)-ord(b));
   let h='';
   artKeys.forEach((art,idx)=>{
-    const vvs=groups[art];
+    const vvs=groups[art].sort((a,b)=>codeNum(a)-codeNum(b)||(a.article||'').localeCompare(b.article||'','el'));
     const aid='art_idx_'+idx;
-    const isTruckLaw=art.includes('Ν.3446')||art.includes('Ν.4663')||art.includes('Ν.5322');
-    const artN=isTruckLaw?null:artNum(art);
-    const artSubj=artN&&ARTICLE_DESC[artN]?ARTICLE_DESC[artN]:(isTruckLaw?'Ν.3446/2006 — Παραβάσεις οδικών μεταφορών φορτηγών':'');
+    const isKok=/^Άρθρο \d+$/.test(art);
+    const artN=isKok?artNum(art):null;
+    const artSubj=artN&&ARTICLE_DESC[artN]?ARTICLE_DESC[artN]:'';
     h+=`<div class="art-header" onclick="toggleArt('${aid}')">
       <div><div>${art}</div>${artSubj?`<div class="art-subj">${artSubj}</div>`:''}</div>
-      <span class="art-cnt">${vvs.length} παράβ. <span class="art-arrow" id="arr_${aid}">▶</span></span>
+      <span class="art-cnt${vvs.length?'':' none'}">${vvs.length?vvs.length+' παράβ.':'χωρίς κύρωση'} <span class="art-arrow" id="arr_${aid}">▶</span></span>
     </div>
     <div class="art-body" id="${aid}" style="display:none">
-      ${(()=>{if(isTruckLaw||!artN)return'';const at=ARTICLE_TEXT[artN];if(!at)return'';return`<div class="art-law-box"><div class="art-law-title">📖 ${at.title}</div><div class="art-law-text">${at.text.replace(/\n/g,'<br>')}</div></div>`;})()}
-      <div class="grp">${vvs.map(v=>cardHTML(v)).join('')}</div>
+      ${isKok?artSumHTML(artN)+(ARTICLE_TEXT[artN]?`<button class="law-btn" onclick="toggleLaw(this,${artN})"><span>📖 Κείμενο νόμου</span><i>Εμφάνιση ▶</i></button><div class="law-box" style="display:none"></div>`:''):''}
+      ${vvs.length?`<div class="grp">${vvs.map(v=>cardHTML(v)).join('')}</div>`:'<div class="art-none">Το άρθρο δεν ορίζει δική του παράβαση/κύρωση (ορισμοί, διαδικασίες, εξουσιοδοτήσεις ή γενικοί κανόνες).</div>'}
     </div>`;
   });
   el.innerHTML=h;
@@ -3987,6 +4566,59 @@ const ARTICLE_TEXT = {
 (Κ - 37) Κίνδυνος λόγω άμεσης γειτονίας ισόπεδης σιδηροδρομικής διάβασης, χωρίς κινητά φράγματα, διπλής ή πολλαπλής σιδηροδρομικής γραμμής ή διάβασης τροχιοδρόμου
 (Κ - 38α) Επικίνδυνο έρεισμα αριστερά.`}
 };
+
+// Συμπλήρωση κειμένων άρθρων 54, 120, 124, 126, 127 (Ν.5209/2025)
+Object.assign(ARTICLE_TEXT,{
+54:{title:`Τεκμήριο υπαιτιότητας`,text:`Τεκμήριο υπαιτιότητας
+Τεκμαίρεται υπαιτιότητα του τρίτου που ζημιώθηκε από την κυκλοφορία οδικού οχήματος, το οποίο οδηγείται κατά τις περί κυκλοφορίας διατάξεις, αν αυτός παραβίασε κατά την επέλευση της ζημίας, τις διατάξεις αυτές. Σε κάθε άλλη περίπτωση έχει εφαρμογή ο ν. ΓϡΝ/1911 (Α’ 332) περί της εκ των αυτοκινήτων ποινικής και αστικής ευθύνης.`},
+120:{title:`Προσθήκη των υπαίτιων εκμισθωτών στα πρόσωπα στα οποία επιβάλλονται διοικητικές κυρώσεις - Τροποποίηση παρ. 1 άρθρου 8 ν. 2946/2001`,text:`Προσθήκη των υπαίτιων εκμισθωτών στα πρόσωπα στα οποία επιβάλλονται διοικητικές κυρώσεις - Τροποποίηση παρ. 1 άρθρου 8 ν. 2946/2001
+Στην παρ. 1 του άρθρου 8 του ν. 2946/2001 (Α’ 224), περί διοικητικών κυρώσεων, προστίθεται δεύτερο εδάφιο, και η παρ. 1 διαμορφώνεται ως εξής:
+«1. Στους διαφημιστές, καθώς και σε όσους μισθώνουν και εκμεταλλεύονται χώρους υπαίθριας διαφήμισης επιβάλλεται πρόστιμο, σύμφωνα με τα οριζόμενα στις επόμενες παραγράφους σε περίπτωση παράβασης των διατάξεων του νόμου αυτού, καθώς και των κατ’ εξουσιοδότησή του εκδιδόμενων κανονιστικών πράξεων. Το ίδιο πρόστιμο επιβάλλεται και στους υπαίτιους εκμισθωτές για τις περιπτώσεις της υποπερ. γγ) της περ. α’ της παρ. 2 του άρθρου 1.»`},
+124:{title:`Συμβάσεις εργασίας ιδιωτικού δικαίου ορισμένου χρόνου για την κάλυψη των αναγκών της παρ. 13 του άρθρου 25 του ν. 5049/2023`,text:`Συμβάσεις εργασίας ιδιωτικού δικαίου ορισμένου χρόνου για την κάλυψη των αναγκών της παρ. 13 του άρθρου 25 του ν. 5049/2023
+Η σύναψη των συμβάσεων εργασίας Ιδιωτικού Δικαίου Ορισμένου Χρόνου, σύμφωνα με την παρ. 13 του άρθρου 25 του ν. 5049/2023 (Α’ 152), δύναται να ολοκληρωθεί έως την 31η Δεκεμβρίου 2025. Συμβάσεις Ιδιωτικού Δικαίου Ορισμένου Χρόνου που έχουν συναφθεί, δυνάμει της ως άνω διάταξης και ήταν ενεργές κατά τη 10η Ιουνίου 2025, παρατείνονται αυτοδικαίως από τη λήξη τους για χρονικό διάστημα οκτώ (8) μηνών και πάντως χωρίς η διάρκειά τους να υπερβαίνει συνολικά τους είκοσι τέσσερις (24) μήνες από την έναρξη της κάθε σύμβασης, κατά την έννοια του άρθρου 6 του π.δ. 164/2004 (Α’ 134). Με διαπιστωτική πράξη του Γενικού Γραμματέα Υποδομών καθορίζονται τα πρόσωπα των οποίων οι συμβάσεις παρατείνονται αυτοδίκαια.`},
+126:{title:`Διαδικασία διαιτησίας στις συγχρηματοδοτούμενες συμβάσεις δημοσίων έργων που υλοποιούν δημόσιες επιχειρήσεις του ν. 3429/2005 - Προσθήκη παρ. 12 στο άρθρο 25Β του ν. 3614/2007`,text:`Διαδικασία διαιτησίας στις συγχρηματοδοτούμενες συμβάσεις δημοσίων έργων που υλοποιούν δημόσιες επιχειρήσεις του ν. 3429/2005 - Προσθήκη παρ. 12 στο άρθρο 25Β του ν. 3614/2007
+Στο άρθρο 25Β του ν. 3614/2007 (Α’ 267), προστίθεται παρ. 12 ως εξής:
+«12. Με τους ίδιους όρους και εφόσον έχει τηρηθεί η κατά τον νόμο και τη σύμβαση προβλεπόμενη προδικασία, δύναται να λάβει χώρα, υπό τις διαδικαστικές προϋποθέσεις της παρ. 1, υπαγωγή σε διαιτησία, διαφορών από μεικτές συμβάσεις, ανεξαρτήτως του προέχοντος χαρακτήρα του έργου, και διαφορών από συμβάσεις προμηθειών ή υπηρεσιών, συγχρηματοδοτούμενες ή μη, υπό την προϋπόθεση ότι οι συμβάσεις αυτές συνδέονται λειτουργικά με υλοποιούμενα έργα της παρ. 1 που έχουν ήδη υπαχθεί σε διαιτησία κατά τους όρους αυτού.»`},
+127:{title:`Παράταση προθεσμίας παραχώρησης υπαίθριων χώρων στάθμευσης για την εξυπηρέτηση του αεροδρομίου Ηρακλείου Κρήτης`,text:`Παράταση προθεσμίας παραχώρησης υπαίθριων χώρων στάθμευσης για την εξυπηρέτηση του αεροδρομίου Ηρακλείου Κρήτης
+Στην παρ. 1 του άρθρου 46 του ν. 5039/2023 (Α’ 83), περί των υπαίθριων χώρων στάθμευσης για την εξυπηρέτηση του αεροδρομίου Ηρακλείου Κρήτης, η ημερομηνία «31η.10.2024» αντικαθίσταται από την ημερομηνία «31η.10.2027» και η παρ. 1 διαμορφώνεται ως εξής:
+«1. Ελεύθεροι δημοτικοί χώροι, όμοροι του αεροδρομίου Ηρακλείου Κρήτης «Νίκος Καζαντζάκης», δύναται να χρησιμοποιηθούν κατά παρέκκλιση του Γενικού Πολεοδομικού Σχεδίου Νέας Αλικαρνασσού, μετά από παραχώρηση του Δήμου Ηρακλείου κατά παρέκκλιση της υπ’ αρ. 1732/2009 απόφασης του Γενικού Γραμματέα Περιφέρειας Κρήτης, περί επέκτασης Γενικού Πολεοδομικού Σχεδίου και αναθεώρησης εγκεκριμένου Γενικού Πολεοδομικού Σχεδίου Δήμου Νέας Αλικαρνασσού Νομού Ηρακλείου (ΑAΠ 122), ως εν γένει υπαίθριοι χώροι στάθμευσης του αεροδρομίου για τη χρονική περίοδο από την έναρξη ισχύος του παρόντος έως την 31η.10.2027.»`}
+});
+
+// ═══════════════════════════════════════════════════
+// ΣΥΝΟΨΗ ΓΙΑ ΤΟΝ ΕΛΕΓΧΟ — εμφανίζεται στο «Κατ' Άρθρο» πάνω από το κείμενο του νόμου.
+// Οι αντίστοιχες κάρτες Οδηγιών (cards) κρύβονται από τη λίστα Οδηγιών αλλά βρίσκονται στην αναζήτηση.
+// ═══════════════════════════════════════════════════
+const ART_SUM={
+ 12:{cards:[397],l:['Κ-31/Κ-32 για αναγγελία κινδύνου σιδηροδρομικής διάβασης','Χωρίς κινητά φράγματα: φωτεινή σηματοδότηση πριν τη διάβαση + Ρ-2 (STOP) στον ίδιο ιστό','Παραβάσεις: άρθρα 31, 9 (ερυθρό αναλάμπον), 21 παρ. 3ε (προσπέραση), 38 παρ. 2δ (στάθμευση)']},
+ 24:{cards:[61],l:['<b>Εντός κατοικημένης:</b> 30 km/h γενικά · 50 km/h σε μονόδρομους ή διπλής κατεύθυνσης με 2+ λωρίδες ανά κατεύθυνση ή με διαχωριστική νησίδα (εκτός αν ορίζεται αλλιώς)','<b>Εκτός κατοικημένης</b> (αυτοκινητόδρομος · ταχείας · λοιπό): επιβατηγό 130 · 110 · 90 · μοτοσικλέτα >125 cc 130 · 110 · 90','Φορτηγά ≤3,5τ 100 · 90 · 80 · φορτηγά >3,5τ 85 · 80 · 80 · λεωφορεία 100 · 90 · 80','Μοτοποδήλατα 45 · αγροτικά & μηχανήματα έργου 40 · χωματόδρομοι εκτός κατοικημένης 40','Ε.Π.Η.Ο. 25 km/h — απαγορεύονται σε οδούς με όριο >50 km/h','Για την υπέρβαση: Βοηθός → Ταχύτητα']},
+ 46:{cards:[385],l:['<b>Όριο:</b> 0,25 mg/l εκπνοή ή 0,50 g/l αίμα · ειδικές κατηγορίες 0,10 mg/l','<b>Τροχονομικός έλεγχος / ατύχημα χωρίς τραυματισμό:</b> μόνο αλκοολόμετρο','<b>Ατύχημα με τραυματισμό:</b> αλκοολόμετρο ή αιμοληψία · <b>θανατηφόρο:</b> υποχρεωτική αιμοληψία','<b>Βεβαίωση:</b> συνεργείο 2 οργάνων, ο ένας ανακριτικός · υποχρεωτική ακινητοποίηση','Για την κατηγορία: Βοηθός → Αλκοόλ']},
+ 47:{cards:[177],l:['Τραυματισμός και ο οδηγός συμμορφώθηκε με την παρ. 2 → δεν κρατείται (όχι 419 ΚΠΔ)','Εξαίρεση: ύποπτος φυγής ή ιδιαίτερα επικίνδυνος → προσαγωγή στον εισαγγελέα','Δεν κρατείται το όχημα αν προσκομιστεί ασφάλιση (ή δήλωση αλληλοασφαλιστικού για ΔΧ)','Εγκαταλελειμμένα οχήματα που εμποδίζουν → απομάκρυνση· μετά 2 μήνες για εκποίηση']},
+ 48:{cards:[433],l:['Μπλε φάρος: ΕΚΑΒ/νοσοκομειακά, ΕΛ.ΑΣ., Δημοτική Αστυνομία, στρατός, λιμενικό · κόκκινος: Πυροσβεστική, Δασαρχείο, ΔΕΗ/ύδρευση','Με σειρήνα και χωρίς κίνδυνο απαλλάσσονται από τα άρθρα 16–45 και 47 — ΟΧΙ ανάποδα σε μονόδρομο ούτε παράβαση σημάτων τροχονόμου','Όλες οι παραβάσεις του άρθρου: Ε2-Α + Σ (150€ + 40 ημέρες)']},
+ 50:{cards:[386],l:['Ακινητοποίηση όταν η κίνηση είναι επικίνδυνη λόγω βλάβης, ρύπων, παράνομων μετατροπών ή κατάστασης του οδηγού','Διαρκεί μέχρι να εξασφαλιστεί ασφαλής κίνηση','Θόρυβος σε ώρες κοινής ησυχίας εντός κατοικημένης → ακινητοποίηση','Άρνηση ή κίνηση ακινητοποιημένου: Ε3-Β, 350€ + 30 ημέρες + φυλάκιση έως 1 έτος']},
+ 54:{cards:[464],l:['Δεν είναι παράβαση — κανόνας απόδειξης για την αστική ευθύνη','Αν ο ζημιωθείς παραβίασε τον ΚΟΚ και το όχημα κινούνταν νόμιμα → τεκμαίρεται υπαιτιότητα του ζημιωθέντος','Καταγράψτε τις παραβάσεις ΟΛΩΝ των εμπλεκομένων στη δικογραφία']},
+ 55:{cards:[438],l:['Πεζόδρομοι με συνύπαρξη: οι πεζοί έχουν προτεραιότητα έναντι ποδηλάτων και Ε.Π.Η.Ο.','Τα άρθρα 55–56 είναι κυρίως οργανωτικά — η κύρωση προκύπτει από την απόφαση κυκλοφοριακής ρύθμισης']},
+ 56:{cards:[438],l:['Ρυθμίσεις στους χερσαίους χώρους λιμένων με κυκλοφοριακή μελέτη· ισχύουν από την τοποθέτηση της σήμανσης','Αγώνες εντός λιμένα μόνο με άδεια του φορέα διοίκησης']},
+ 88:{cards:[450],l:['Κυκλοφορία μόνο με προηγούμενη έγκριση τύπου','Επιβατηγά από 1.1.1993 έχουν υποχρεωτικά ζώνες και στα πίσω καθίσματα','Μηχανήματα έργου μεταφέρουν επιβάτες μόνο εκτός οδικού δικτύου']},
+ 96:{cards:[452],l:['Αφαίρεση άδειας & πινακίδων όταν: α) έπαψαν οι προϋποθέσεις χορήγησης ή β) δεν είναι ασφαλής η κυκλοφορία','Δεν ορίζει πρόστιμο — αυτοτελής βάση αφαίρεσης · συνδυάζεται με το άρθρο 50']},
+ 98:{cards:[453,16],l:['Ειδική άδεια ή πιστοποιητικό απαιτείται επιπλέον της κανονικής άδειας όπου προβλέπεται','Μοτοποδήλατα έως 25 km/h: από 15 ετών','Η άδεια παύει αυτοδίκαια όταν δεν πληρούνται οι απαιτήσεις υγείας','Ξένες άδειες: ΕΕ/ΕΟΧ πάντα · τρίτες χώρες κυρίως χωρίς συνήθη διαμονή — βλ. Ειδική νομοθεσία → «Ξένες άδειες οδήγησης»','Εκπαιδευόμενος/εξεταζόμενος εξαιρείται με τα προβλεπόμενα έγγραφα']},
+ 99:{cards:[148],l:['Ληγμένη άδεια (γενικά): Ε2-Α, 150€','Φορτηγά: Ν.3446/2006 — Ζ10, ιδιοκτήτης 550€ + οδηγός 260€','Ταξί (ειδική άδεια ΕΔΧ): Ν.4070/2012 · ληγμένο Π.Ε.Ι.: Ε3-Α, 350€']},
+ 106:{cards:[381,606],l:['Πινακίδες/άδεια κυκλοφορίας αφαιρούνται ΜΟΝΟ στις περιπτώσεις της παρ. 1 (κλειστός κατάλογος) ή όπου το άρθρο το ορίζει ρητά','Αφαίρεση επί τόπου από τον βεβαιούντα· μη παράδοση σε 5 ημέρες → απείθεια (169 ΠΚ)','Συρροή: οι ημέρες αφαίρεσης αθροίζονται · νέα αφαίρεση ξεκινά μετά τη λήξη της προηγούμενης','Ταξί: χωρίς αφαίρεση για Ρ-67 και λεωφορειολωρίδα','Οχήματα χωρίς άδεια οδήγησης/στοιχεία (ποδήλατο, Ε.Π.Η.Ο.): μόνο πρόστιμο · χωρίς ορισμένη κύρωση: Ε1-Α 30€']},
+ 107:{cards:[457],l:['Αντιρρήσεις εντός 3 ημερών · πληρωμή εντός 2 μηνών','ΚΤΕΟ: 45€ αν προσκομιστεί δελτίο εντός 10 ημερών (όχι ΕΔΧ, ασθενοφόρα, φορτηγά >3,5τ, λεωφορεία)','Βεβαίωση με αριθμό κυκλοφορίας: ο ιδιοκτήτης υποδεικνύει οδηγό εντός 7 ημερών','Συρροή: βαρύτερο πρόστιμο + ½ των λοιπών · ιδιοκτήτης-οδηγός πληρώνει μόνο ως ιδιοκτήτης']},
+ 108:{cards:[459],l:['Ε1-Α 30€ · Ε1-Β 30€ + 10 ημ. · Ε2-Α 150€ · Ε2-Β 150€ + 20 ημ.','Ε3-Α 350€ · Ε3-Β 350€ + 30 ημ. (πινακίδες μόνο κατά το άρθρο 106 παρ. 1)','Ε4: όπως ορίζει η κάθε διάταξη · Σ: +40 ημέρες αφαίρεση επιπλέον']},
+ 109:{cards:[460],l:['Μετά από ανάκληση: νέα άδεια μετά από 3 έτη (εκτός ανάκλησης εφ’ όρου ζωής)']},
+ 110:{cards:[460],l:['Υποτροπή = ίδια παράβαση στο διάστημα που ορίζεται, ανεξάρτητα από τόπο και επίδοση','Στάθμευση που συνεχίζεται πέραν των 3 ωρών → νέα παράβαση και υποτροπή','Μετά από 5 έτη χωρίς νέα υποτροπή, η επόμενη θεωρείται πρώτη','Πίνακας κλιμάκωσης: Κατηγορίες → Σύστημα υποτροπής · βαθμοί Σ.Ε.Σ.Ο.: Ειδική νομοθεσία']},
+ 114:{cards:[461],l:['Ο Ν.5209/2025 ισχύει από 13.09.2025 (ορισμένες διατάξεις από 13.06.2025) — για παλαιότερες παραβάσεις ο Ν.2696/1999','Νέα όρια ταχύτητας εντός κατοικημένης από 1.1.2026','Οι ΚΥΑ του παλιού ΚΟΚ συνεχίζουν να ισχύουν (π.χ. ειδικό όριο αλκοόλ 0,10, Σ.Ε.Σ.Ο.)','Παραπομπές στον παλιό ΚΟΚ = στο αντίστοιχο άρθρο του νέου (άρθρο 113 παρ. 3)']}
+};
+// Διόρθωση τίτλων άρθρων: 21, 24, 44 από την πρώτη γραμμή του κειμένου · αφαίρεση επικεφαλίδων «ΚΕΦΑΛΑΙΟ…» που κόλλησαν σε τίτλους
+[21,24,44].forEach(n=>{ const at=ARTICLE_TEXT[n]; if(at){ const fl=at.text.split('\n')[0].trim(); at.title=fl; ARTICLE_DESC[n]=fl; } });
+for(let n=1;n<=132;n++){ const cut=s=>String(s||'').replace(/\s+K[EΕ][ΦF][AΑ][ΛL][AΑ][IΙ][OΟ]\s.*$/,'').trim(); if(ARTICLE_TEXT[n]) ARTICLE_TEXT[n].title=cut(ARTICLE_TEXT[n].title); if(ARTICLE_DESC[n]) ARTICLE_DESC[n]=cut(ARTICLE_DESC[n]); }
+const MOVED_CARDS=new Set(Object.values(ART_SUM).flatMap(x=>x.cards));
+V.forEach(v=>{ if(MOVED_CARDS.has(v.id)){ const arts=Object.keys(ART_SUM).filter(a=>ART_SUM[a].cards.includes(v.id)); v.measures=(v.measures||[]).concat(['📍 Σύνοψη υπάρχει και στο «Κατ’ Άρθρο» → Άρθρο '+arts.join(', ')]); } });
+function artSumHTML(n){ const s=ART_SUM[n]; if(!s) return ''; return `<div class="art-sum"><div class="art-sum-h">📌 ΣΥΝΟΨΗ ΓΙΑ ΤΟΝ ΕΛΕΓΧΟ</div><ul>${s.l.map(x=>`<li>${x}</li>`).join('')}</ul></div>`; }
+function toggleLaw(btn,n){ const box=btn.nextElementSibling; if(box.dataset.done){ const open=box.style.display!=='none'; box.style.display=open?'none':'block'; btn.querySelector('i').textContent=open?'Εμφάνιση ▶':'Απόκρυψη ▼'; return; }
+  const at=ARTICLE_TEXT[n]; box.innerHTML=at?`<div class="art-law-box"><div class="art-law-title">📖 ${at.title}</div><div class="art-law-text">${at.text.replace(/\n/g,'<br>')}</div></div>`:''; box.dataset.done='1'; box.style.display='block'; btn.querySelector('i').textContent='Απόκρυψη ▼'; }
+
+
 
 // ═══════════════════════════════════════════════════
 // SERVICE WORKER — offline + αυτόματη ενημέρωση από GitHub Pages
