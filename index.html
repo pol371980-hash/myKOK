@@ -543,6 +543,8 @@ body.light .iv-tile b{color:var(--text)}
 body.light .iv-tile em{color:#a66b00}
 body.light .sesob{color:#9a6b00;background:rgba(255,204,0,.22)}
 body.light .seso-v{color:#b07a00!important}
+.lng{font-size:13px!important;font-weight:800}
+body.in-list .hdr .thm{display:none}
 .thm{flex-shrink:0;background:var(--g3);color:var(--text);border:none;border-radius:10px;height:34px;min-width:40px;padding:0 8px;font-size:16px;cursor:pointer;margin-right:6px}
 </style>
 </head>
@@ -568,7 +570,7 @@ body.light .seso-v{color:#b07a00!important}
   <button class="vtab fot" onclick="setVeh('fot',this)">🚛 Φορτηγά</button>
   <button class="vtab kok on" onclick="setVeh('kok',this)">🚗 ΚΟΚ</button>
 </div>
-  <button class="thm" onclick="toggleTheme()" aria-label="Φωτεινό / σκούρο θέμα">☀️</button><button class="fzc" onclick="cycleFz()" aria-label="Μέγεθος γραμμάτων">Αα</button>
+  <button class="thm lng" onclick="toggleLang()" aria-label="Language / Γλώσσα">EN</button><button class="thm" onclick="toggleTheme()" aria-label="Φωτεινό / σκούρο θέμα">☀️</button><button class="fzc" onclick="cycleFz()" aria-label="Μέγεθος γραμμάτων">Αα</button>
   <span id="vcnt" style="display:none">—</span>
 </div>
 
@@ -1454,9 +1456,11 @@ const SYN={
  'εισιτηριο':['εισιτηρ','οασα']
 };
 const CODE_RE=/^(?:adr\s*|ταχ(?:ογραφοσ)?\s*)?(στ\s*\d{1,2}|[αβγδεζηθ]\s*\d{1,2})$/;
+function GT(v){ return v._gr?v._gr.title:(v.title||''); }
+function GM(v){ return v._gr?v._gr.measures:(v.measures||[]); }
 function vCodes(v){
   if(v._codes) return v._codes;
-  const t=v.title||'';const c=[];let m;
+  const t=GT(v);const c=[];let m;
   if((m=t.match(/^ADR (\S+) —/))) c.push('adr'+nz(m[1]));
   if((m=t.match(/^Ταχογράφος (\S+) —/))) c.push('ταχ'+nz(m[1]));
   if((m=t.match(/\((ΣΤ\d{1,2}|[ΑΒΓΔΕΖΗΘ]\d{1,2})\)/))) c.push('κυα'+nz(m[1]));
@@ -1464,7 +1468,7 @@ function vCodes(v){
 }
 function vIdx(v){
   if(v._ix) return v._ix;
-  v._ix={t:nz(v.title),g:nz((v.tags||[]).join(' | ')),a:nz(v.article),d:nz(v.desc)+' '+nz((v.measures||[]).join(' '))};
+  v._ix={t:nz(v.title)+(v._gr&&v._gr.title!==v.title?' | '+nz(v._gr.title):''),g:nz((v.tags||[]).join(' | ')),a:nz(v.article),d:nz(v.desc)+' '+nz((v.measures||[]).join(' '))+(v._gr&&v._gr.desc!==v.desc?' '+nz(v._gr.desc):'')};
   return v._ix;
 }
 function qTokens(q){return nz(q).replace(/[.,;:·«»"'()\[\]\/\\!?–—-]+/g,' ').split(/\s+/).filter(x=>x.length>0);}
@@ -1544,7 +1548,7 @@ function hl(t,q){
 let WIZ='speed';
 const WZ={};
 const byId=id=>V.find(v=>v.id===id);
-const byKya=c=>V.find(v=>(v.title||'').includes('('+c+')')&&!/^ADR|^Ταχογράφος/.test(v.title));
+const byKya=c=>V.find(v=>GT(v).includes('('+c+')')&&!/^ADR|^Ταχογράφος/.test(GT(v)));
 const byTax=c=>V.find(v=>(v.title||'').startsWith('Ταχογράφος '+c+' —'));
 function num(x){ if(x==null) return NaN; x=String(x).trim().replace(',','.'); const m=x.match(/^(\d+):(\d{1,2})$/); if(m) return +m[1]+(+m[2])/60; return x===''?NaN:+x; }
 function wzSet(k,val,re){ WZ[k]=val; if(re) render(); else wzCalc(); }
@@ -1581,7 +1585,7 @@ function renderWiz(el){
       <div class="rf-bar"><span>Τεστ αντανακλαστικών — ενδεικτική εκτίμηση, ΔΕΝ αντικαθιστά αλκοολόμετρο</span><button onclick="readyFull(true)">⛶ Πλήρης οθόνη</button></div>
       <div id="rf-wrap"><button id="rf-close" onclick="readyFull(false)">✕ Κλείσιμο</button><iframe id="readyFrame" title="Ετοιμότητα Οδηγού"></iframe></div>
     </div>`;
-    document.getElementById('readyFrame').srcdoc=READY_HTML;
+    document.getElementById('readyFrame').srcdoc=READY_HTML.replace("let lang=store.get('lang',null)||'el';","let lang='"+(LANG==='en'?'en':'el')+"';");
     return;
   }
   let f='';
@@ -1739,10 +1743,10 @@ function wzCalc(){
 // ΦΙΛΤΡΑ — νομικό πλαίσιο · διοικητικό μέτρο · Οδηγός εφαρμογής
 // ═══════════════════════════════════════════════════
 let FW='', MS='';
-const isInfo=v=>/^ℹ️/.test(v.title||'');
+const isInfo=v=>/^ℹ️/.test(GT(v));
 function fwOf(v){
   if(!isTruckV(v)) return 'kok';
-  const t=v.title||'', g=v.tags||[];
+  const t=GT(v), g=v.tags||[];
   if(/^ADR /.test(t)||g.includes('ΚΥΑ Γ6/122515')) return 'adr';
   if(/^Ταχογράφος /.test(t)||g.includes('ταχογράφος')) return 'tacho';
   if(/Γ5\/353651/.test(v.article||'')||g.includes('ΚΥΑ Γ5/353651')) return 'kya';
@@ -1752,7 +1756,7 @@ function negBefore(l,re){const k=l.search(re);if(k<0)return true;const ng=l.sear
 function msOf(v){
   if(v._ms) return v._ms;
   const s=new Set(), af=String(v.afairesi||'');
-  const L=(v.measures||[]).filter(l=>!/^ℹ️|^⚠️|^🎯|^📌/.test(l)&&!/διασφάλιση/.test(l));
+  const L=GM(v).filter(l=>!/^ℹ️|^⚠️|^🎯|^📌/.test(l)&&!/διασφάλιση/.test(l));
   const has=re=>L.some(l=>!negBefore(l,re));
   if(/ακινητοπ/i.test(af)||has(/ακινητοποί/i)) s.add('imm');
   if(afDays(v.afairesi)>0||has(/(αφαίρεση|αφαιρείται|στέρηση)[^.]{0,40}άδεια[ς]? οδήγησης/i)) s.add('lic');
@@ -1811,8 +1815,8 @@ function renderInfo(el){
     const ranked=items.map(v=>[v,scoreV(v,Q)]).sort((a,b)=>b[1]-a[1]).map(x=>x[0]);
     el.innerHTML=`<div class="rank-h">📘 Ειδική νομοθεσία — αποτελέσματα (${ranked.length})</div><div class="grp">${ranked.map(cardHTML).join('')}</div>`; return;
   }
-  const g=[['🚗 ΚΟΚ — γενικά',items.filter(v=>!isTruckV(v)&&!/ADR|Ταχογράφ|ΤΑΧΟΓΡΑΦ|561\/2006|165\/2014|3446/.test(v.title+v.article))],
-           ['🚛 Φορτηγά & λεωφορεία',items.filter(v=>isTruckV(v)||/ADR|Ταχογράφ|ΤΑΧΟΓΡΑΦ|561\/2006|165\/2014|3446/.test(v.title+v.article))]];
+  const g=[['🚗 ΚΟΚ — γενικά',items.filter(v=>!isTruckV(v)&&!/ADR|Ταχογράφ|ΤΑΧΟΓΡΑΦ|561\/2006|165\/2014|3446/.test(GT(v)+v.article))],
+           ['🚛 Φορτηγά & λεωφορεία',items.filter(v=>isTruckV(v)||/ADR|Ταχογράφ|ΤΑΧΟΓΡΑΦ|561\/2006|165\/2014|3446/.test(GT(v)+v.article))]];
   let h=`<div class="rank-h">📘 Ειδική νομοθεσία — φορτηγά, ταχογράφος, ADR, Σ.Ε.Σ.Ο., άδειες (${items.length})</div>`;
   g.forEach(([t,arr])=>{ if(!arr.length) return; h+=`<div class="sec">${t} <span style="color:var(--g5);font-weight:400">(${arr.length})</span></div><div class="grp">${arr.sort((a,b)=>a.title.localeCompare(b.title,'el')).map(cardHTML).join('')}</div>`; });
   el.innerHTML=h;
@@ -1826,7 +1830,7 @@ const GRPN={kok:'ΚΟΚ',kya:'ΚΥΑ φορτηγών / Ν.3446',adr:'ADR',tacho
 function personAmts(v){
   if(!isTruckV(v)) return {P:v.amount||0};
   const o={};
-  (v.measures||[]).forEach(m=>{
+  GM(v).forEach(m=>{
     const x=m.match(/^\S+\s*([^:]{2,40}):\s*([\d.]+)\s*€/); if(!x) return;
     const r=x[1], a=parseInt(x[2].replace(/\./g,''),10); let k=null;
     if(/^Ιδιοκτήτης/.test(r)) k='I'; else if(/^Οδηγός/.test(r)) k='O'; else if(/Αποστολέας|^Φορτωτής/.test(r)) k='A'; else if(/^Υπεύθυνος φόρτωσης/.test(r)) k='F'; else if(/^Μεταφορέας/.test(r)) k='M';
@@ -1835,7 +1839,7 @@ function personAmts(v){
   if(!Object.keys(o).length) o.I=v.amount||0;
   return o;
 }
-function grpOf(v){ if(!isTruckV(v)) return 'kok'; if(/^ADR\b/.test(v.title||'')) return 'adr'; if(/^Ταχογράφος [ΑΒ]\d/.test(v.title||'')) return 'tacho'; return 'kya'; }
+function grpOf(v){ if(!isTruckV(v)) return 'kok'; if(/^ADR\b/.test(GT(v))) return 'adr'; if(/^Ταχογράφος [ΑΒ]\d/.test(GT(v))) return 'tacho'; return 'kya'; }
 function calcPersons(rows){
   const res={}, by={};   // res[person]={total, parts:{grp:amt}}
   rows.forEach(r=>{ const g=grpOf(r.v); const pa=personAmts(r.v); Object.keys(pa).forEach(p=>{ (by[g+'|'+p]=by[g+'|'+p]||[]).push({a:pa[p],f:r.f,abs:r.f===0}); }); });
@@ -1913,7 +1917,7 @@ function grpKey(v){
   return v.article||'Άλλο';
 }
 function gOrd(k){ if(/^🚛/.test(k)) return 1; if(/^☢/.test(k)) return 2; if(/^⏱/.test(k)) return 3; return 0; }
-function codeNum(v){ const m=(v.title||'').match(/(?:^ADR [ΑΒΓΔ]|^Ταχογράφος [ΑΒ]|\((?:ΣΤ|[ΑΒΓΔΕΖΗΘ]))(\d+)/); return m?+m[1]:1000+v.id; }
+function codeNum(v){ const m=GT(v).match(/(?:^ADR [ΑΒΓΔ]|^Ταχογράφος [ΑΒ]|\((?:ΣΤ|[ΑΒΓΔΕΖΗΘ]))(\d+)/); return m?+m[1]:1000+v.id; }
 
 // Κουμπί καλαθιού μέσα στην καρτέλα παράβασης
 const _openDetail=openDetail;
@@ -2424,7 +2428,7 @@ const INFO_VIEW={
 // ΕΙΔΙΚΗ ΝΟΜΟΘΕΣΙΑ σε δύο ενότητες + ΠΙΝΑΚΙΔΕΣ (Παράρτημα Α' Ν.5209/2025)
 // ═══════════════════════════════════════════════════
 let INFO_G='tr';
-const isTrInfo=v=>isTruckV(v)||/ADR|Ταχογράφ|ΤΑΧΟΓΡΑΦ|561\/2006|165\/2014|3446/.test(v.title+v.article);
+const isTrInfo=v=>isTruckV(v)||/ADR|Ταχογράφ|ΤΑΧΟΓΡΑΦ|561\/2006|165\/2014|3446/.test(GT(v)+v.article);
 const INFO_META={tr:{ic:'🚛',n:'Φορτηγά — ειδική νομοθεσία',ph:'Αναζήτηση: ταχογράφος, ADR, κλιμάκια, ώρες οδήγησης…'},
                  kok:{ic:'🪪',n:'Άδειες & λοιπά',ph:'Αναζήτηση: ξένη άδεια, κατηγορία C, ΣΕΣΟ, ΟΑΣΑ…'}};
 const _setTabOrig=setTab;
@@ -2450,7 +2454,7 @@ function sgLoad(cb){
   if(window.SIGNS) return cb();
   if(SG_LOADING) return; SG_LOADING=true;
   const s=document.createElement('script'); s.src='pinakides.js';
-  s.onload=()=>{SG_LOADING=false;cb();};
+  s.onload=()=>{SG_LOADING=false;if(LANG==='en')langData();cb();};
   s.onerror=()=>{SG_LOADING=false; const el=document.getElementById('main'); if(TAB==='signs'&&el) el.innerHTML='<div class="empty"><div class="ei">⚠️</div><div class="et">Δεν φορτώθηκαν οι πινακίδες</div><div>Ανοίξτε την εφαρμογή μία φορά με σύνδεση στο internet.</div></div>';};
   document.head.appendChild(s);
 }
@@ -2493,12 +2497,70 @@ function openSign(i){
 // ═══ Θέμα: σκούρο / ανοιχτό ═══
 function setTheme(t){
   document.body.classList.toggle('light',t==='light');
-  const b=document.querySelector('.thm'); if(b) b.textContent=t==='light'?'🌙':'☀️';
+  const b=document.querySelector('.thm:not(.lng)'); if(b) b.textContent=t==='light'?'🌙':'☀️';
   const m=document.querySelector('meta[name=theme-color]'); if(m) m.content=t==='light'?'#dcdde1':'#000000';
   try{localStorage.setItem('ekok-theme',t);}catch(e){}
 }
 function toggleTheme(){ setTheme(document.body.classList.contains('light')?'dark':'light'); }
 try{ setTheme(localStorage.getItem('ekok-theme')||'dark'); }catch(e){}
+
+
+// ═══ Γλώσσα: Ελληνικά / English ═══
+var LANG='el', _LANG_OBS=null, _EN_LOADING=false;
+const _NUMRE=/\d+(?:[.,]\d+)*/g, _GRRE=/[Α-Ωα-ωΆ-ώ]/;
+function trStr(x){
+  if(!window.EN_UI) return null;
+  const t=x.trim(); if(!t||!_GRRE.test(t)) return null;
+  const nums=[]; const k=t.replace(_NUMRE,m=>{nums.push(m);return '{'+(nums.length-1)+'}';});
+  let v=EN_UI[k];
+  if(v==null){ if(!window.EN_PART) return null; let r=k, ch=false; EN_PART.forEach(([g,e])=>{ if(r.includes(g)){ r=r.split(g).join(e); ch=true; } }); if(!ch) return null; v=r; }
+  return x.replace(t, v.replace(/\{(\d+)\}/g,(_,i)=>nums[+i]!=null?nums[+i]:''));
+}
+function trNode(root){
+  if(LANG!=='en'||!root) return;
+  if(root.nodeType===3){ const r=trStr(root.nodeValue); if(r!=null&&r!==root.nodeValue) root.nodeValue=r; return; }
+  if(root.nodeType!==1||root.closest&&root.closest('script,style,.law-txt,.art-law,#readyFrame')) return;
+  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT); let n; const L=[];
+  while((n=w.nextNode())) L.push(n);
+  L.forEach(n=>{ if(n.parentElement&&n.parentElement.closest('script,style,.law-txt,.art-law')) return; const r=trStr(n.nodeValue); if(r!=null&&r!==n.nodeValue) n.nodeValue=r; });
+  const els=[root,...root.querySelectorAll('[placeholder],[title],[aria-label]')];
+  els.forEach(e=>{ if(!e.getAttribute) return; ['placeholder','title','aria-label'].forEach(a=>{ const v=e.getAttribute(a); if(v){ const r=trStr(v); if(r!=null&&r!==v) e.setAttribute(a,r); } }); });
+}
+function langData(){
+  V.forEach(v=>{
+    if(!v._gr) v._gr={title:v.title,desc:v.desc,measures:v.measures};
+    const e=LANG==='en'&&window.EN_V&&EN_V[v.id];
+    if(e){ v.title=e.t; v.desc=e.d; v.measures=e.m.concat((v._gr.measures||[]).slice(e.m.length)); }
+    else { v.title=v._gr.title; v.desc=v._gr.desc; v.measures=v._gr.measures; }
+    v._ix=null;
+  });
+  if(window.SIGNS) SIGNS.forEach(o=>{
+    if(!o._gr) o._gr={t:o.t,f:o.f};
+    const e=LANG==='en'&&window.EN_SIGNS&&EN_SIGNS[o.c.replace(/′$/,'')];
+    if(e){ o.t=e.t; o.f=e.f||''; } else { o.t=o._gr.t; o.f=o._gr.f; }
+  });
+}
+function setLang(l){
+  if(l==='en'&&!window.EN_V){
+    if(_EN_LOADING) return; _EN_LOADING=true;
+    const sc=document.createElement('script'); sc.src='en.js';
+    sc.onload=()=>{_EN_LOADING=false; setLang('en');};
+    sc.onerror=()=>{_EN_LOADING=false; alert('English pack not available offline yet. Open the app once with internet.');};
+    document.head.appendChild(sc); return;
+  }
+  LANG=l; document.documentElement.lang=l==='en'?'en':'el';
+  try{localStorage.setItem('ekok-lang',l);}catch(e){}
+  langData();
+  const b=document.querySelector('.lng'); if(b) b.textContent=l==='en'?'ΕΛ':'EN';
+  if(!_LANG_OBS&&window.MutationObserver){
+    _LANG_OBS=new MutationObserver(ms=>{ if(LANG!=='en') return; ms.forEach(m=>{ if(m.type==='characterData') trNode(m.target); else if(m.type==='attributes') trNode(m.target); else m.addedNodes.forEach(n=>trNode(n)); }); });
+    _LANG_OBS.observe(document.body,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['placeholder','title','aria-label']});
+  }
+  // επαναφορά/μετάφραση στατικών στοιχείων: απλούστερα, ξαναφόρτωση οθόνης
+  if(l==='el'){ try{ sessionStorage.setItem('ekok-tab',TAB);}catch(e){} location.reload(); return; }
+  setTab(TAB==='home'?'home':TAB,true); trNode(document.body);
+}
+function toggleLang(){ setLang(LANG==='en'?'el':'en'); }
 
 function render(){
   const el=document.getElementById('main');
@@ -2716,7 +2778,7 @@ function init(){
     document.getElementById('si').addEventListener('input',function(){
       Q=this.value.trim();
       document.getElementById('cb').classList.toggle('on',Q.length>0);
-      if(Q&&TAB!=='all'&&TAB!=='info'){TAB='all';document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x.dataset.t==='all'));document.getElementById('tabs').classList.remove('hide');document.body.classList.remove('at-home');document.body.classList.add('in-list');document.querySelectorAll('.nb').forEach(x=>x.classList.toggle('on',x.dataset.t==='all'));}
+      if(Q&&TAB!=='all'&&TAB!=='info'&&TAB!=='signs'){TAB='all';document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x.dataset.t==='all'));document.getElementById('tabs').classList.remove('hide');document.body.classList.remove('at-home');document.body.classList.add('in-list');document.querySelectorAll('.nb').forEach(x=>x.classList.toggle('on',x.dataset.t==='all'));}
       render();
     });
     document.getElementById('vcnt').textContent=V.length;
@@ -2726,6 +2788,8 @@ function init(){
     document.body.classList.toggle('no-search',!['all','az','art','info'].includes(TAB)); window._sec=['all','az','art'].includes(TAB)?'list':TAB;
     { const c=document.getElementById('cr-cnt'); if(c) c.textContent=V.filter(v=>!isInfo(v)&&!REPEALED.has(v.id)).length; }
     render();
+    try{ const st=sessionStorage.getItem('ekok-tab'); if(st){ sessionStorage.removeItem('ekok-tab'); if(st!=='home') setTab(st==='info'?(INFO_G==='tr'?'infoT':'infoK'):st); } }catch(e){}
+    try{ if(localStorage.getItem('ekok-lang')==='en') setLang('en'); }catch(e){}
   } catch(e) {
     const el = document.getElementById('main');
     if(el) el.innerHTML='<div class="empty"><div class="ei">⚠️</div><div class="et">Σφάλμα φόρτωσης</div><div style="font-size:12px;margin-top:8px">'+e.message+'</div></div>';
@@ -2775,13 +2839,13 @@ function clearSel(){
    - ADR (ΚΥΑ Γ6/122515/2026, άρθρο 11): σοβαρότερη στο ακέραιο + 50% των λοιπών (εφόσον καταβάλλεται επιτόπου)
    Τα επιμέρους σύνολα αθροίζονται. Για τα φορτηγά υπολογίζεται το πρόστιμο του ιδιοκτήτη/μισθωτή (v.amount).
 */
-function kyaCode(v){const m=(v.title||'').match(/\((ΣΤ\d{1,2}|[ΑΒΓΔΕΖΗΘ]\d{1,2})\)/);return m?m[1]:null;}
+function kyaCode(v){const m=GT(v).match(/\((ΣΤ\d{1,2}|[ΑΒΓΔΕΖΗΘ]\d{1,2})\)/);return m?m[1]:null;}
 function calcBasket(){
   const items = [...SELECTED].map(id => V.find(v=>v.id===id)).filter(Boolean);
   if(!items.length) return {items:[], primary:null, total:0, totalDays:0, rows:[]};
   const isTruck=v=>!!(v.tags&&v.tags.includes('3446'));
-  const isADR=v=>/^ADR\b/.test(v.title||'');
-  const isTacho=v=>/^Ταχογράφος [ΑΒ]\d/.test(v.title||'');
+  const isADR=v=>/^ADR\b/.test(GT(v));
+  const isTacho=v=>/^Ταχογράφος [ΑΒ]\d/.test(GT(v));
   const kok=items.filter(v=>!isTruck(v)), adr=items.filter(v=>isTruck(v)&&isADR(v)), tacho=items.filter(v=>isTruck(v)&&isTacho(v)), kya=items.filter(v=>isTruck(v)&&!isADR(v)&&!isTacho(v));
   const rows=[];
   // ΚΟΚ & ADR: μέγιστο + 50%
